@@ -75,27 +75,20 @@
       50% { opacity: 0.5; transform: scale(0.9) rotate(5deg); }
       100% { opacity: 0; transform: scale(0.8) rotate(10deg); display: none; }
     }
-    .sticky-footer::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 10px;
-      height: 10px;
-      background: rgba(255, 215, 0, 0.8);
-      border-radius: 50%;
-      opacity: 0;
-      transform: translate(-50%, -50%);
-      animation: sparkle 1s infinite;
-    }
-    @keyframes sparkle {
-      0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
-      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
-    }
     .section-animate { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .section-animate.visible { opacity: 1; transform: translateY(0); }
-    .hero-section { background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)); background-size: cover; background-position: center; height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; }
+    .hero-section { background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(43, 108, 176, 0.4)); background-size: 200% 200%; animation: gradientShift 15s ease infinite; height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .scroll-down { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: #FFFFFF; font-size: 1.5rem; animation: bounce 2s infinite; }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
     .opt-in-section { background: #2B6CB0; position: relative; }
     .text-shadow { text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); }
     .confirmation-message { display: none; background: #FFFFFF; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); text-align: center; max-width: 90%; margin: 0 auto; }
@@ -105,12 +98,14 @@
     .quiz-container { background: #FFFFFF; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); max-width: 90%; margin: 0 auto; color: #2D3748; }
     .quiz-container label { font-size: 1rem; margin-bottom: 0.5rem; display: flex; align-items: center; transition: color 0.3s ease; }
     .quiz-container input[type="radio"] { margin-right: 0.5rem; width: 20px; height: 20px; transition: transform 0.3s ease; }
+    .testimonial-block { transition: all 0.3s ease; padding: 1rem; border-radius: 0.5rem; }
+    .testimonial-block:hover { transform: scale(1.02); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); background: #F5F5F4; }
     /* Desktop Optimizations */
     @media (min-width: 1024px) {
       .container { max-width: 1280px; padding-left: 2rem; padding-right: 2rem; }
       .hero-section { height: 700px; padding-top: 6rem; padding-bottom: 6rem; }
       .hero-section h1 { font-size: 4rem; }
-      .hero-section video { width: 640px; height: 360px; }
+      .hero-section iframe { width: 640px; height: 360px; }
       .hero-section .cta-button { font-size: 1.25rem; padding: 1rem 2rem; }
       .hero-section .cta-button:hover { background-color: #FB923C; }
       .opt-in-section p { font-size: 1.25rem; }
@@ -139,13 +134,23 @@
       .sticky-footer .cta-button { font-size: 1.125rem; padding: 0.75rem 2rem; }
       .sticky-footer .cta-button:hover { background-color: #FB923C; }
     }
+    /* iPhone 11 Pro Optimizations */
     @media (max-width: 768px) {
-      .hero-section { height: 400px; }
+      .hero-section { height: 400px; padding-top: calc(3rem + env(safe-area-inset-top)); }
+      .hero-section .container { display: flex; flex-direction: column; gap: 1rem; }
+      .hero-section img { margin-bottom: 1rem; }
+      .hero-section h1 { font-size: 2rem; margin-bottom: 1rem; }
+      .hero-section iframe { width: 100%; height: 180px; margin-bottom: 1rem; }
+      .hero-section .cta-button { font-size: 0.875rem; padding: 0.5rem 1rem; max-width: 250px; margin: 0 auto; }
       .form-input { padding: 0.5rem; font-size: 0.9rem; }
       .confirmation-message { padding: 1.5rem; max-width: 100%; }
       .cta-button { font-size: 1rem; padding: 0.75rem 1.5rem; }
       .quiz-container label { font-size: 0.9rem; }
       .quiz-container input[type="radio"] { width: 16px; height: 16px; }
+      .sticky-footer p { font-size: 0.875rem; margin-bottom: 0.5rem; }
+      .sticky-footer .cta-button { font-size: 0.875rem; padding: 0.5rem 1rem; }
+      .testimonial-block { padding: 0.75rem; }
+      .testimonial-block img { max-width: 150px; }
     }
   </style>
 </head>
@@ -153,17 +158,17 @@
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TJFHXDC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- Hero Section with Video -->
+  <!-- Hero Section with YouTube Video -->
   <section class="hero-section section-animate">
     <div class="container mx-auto px-4">
-      <img src="savoir-freres-logo.png" alt="Logo Savoir-Frères - Marketing Numérique" class="h-16 mb-6 mx-auto">
+      <a href="https://www.youtube.com/@Savoir-Frères/featured" target="_blank" aria-label="Watch our Video Sales Letter on YouTube">
+        <img src="savoir-freres-logo.png" alt="Logo Savoir-Frères - Marketing Numérique" class="h-16 mb-6 mx-auto">
+      </a>
       <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 text-shadow">Boostez Vos Ventes avec Savoir-Frères</h1>
-      <video class="mx-auto mb-6 rounded-lg shadow-lg" width="320" height="180" autoplay muted loop playsinline>
-        <source src="https://example.com/savoir-freres-success-story.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas la vidéo.
-      </video>
+      <iframe class="mx-auto mb-6 rounded-lg shadow-lg" width="320" height="180" src="https://www.youtube.com/embed/c21fxJilfKM?autoplay=1&mute=1&loop=1&playlist=c21fxJilfKM" title="Savoir-Frères Success Story" frameborder="0" allow="autoplay; muted" allowfullscreen></iframe>
       <a href="#opt-in" id="hero-cta" class="cta-button bg-[#F97316] text-white py-3 px-8 rounded-lg text-lg font-semibold pulse" aria-label="Démarrez votre croissance">Démarrez Votre Croissance Aujourd’hui</a>
     </div>
+    <div class="scroll-down">↓</div>
   </section>
 
   <!-- Opt-In Section with Interactive Quiz -->
@@ -312,8 +317,14 @@
       <!-- Testimonials -->
       <div class="text-center mb-12">
         <h3 class="text-xl font-semibold mb-4 text-blue-600">Témoignages</h3>
-        <p class="italic mb-4">"Savoir-Frères a transformé notre présence sur les réseaux sociaux. Nos ventes ont augmenté de 30% en 3 mois !" - Construction Désilets-Larkin Inc.</p>
-        <p class="italic mb-4">"Leur stratégie personnalisée a fait des merveilles pour notre boutique. Merci Savoir-Frères !" - Boutique Mode Étoile</p>
+        <div class="testimonial-block mx-auto max-w-lg">
+          <img src="desilets-larkin-logo.png" alt="Désilets Larkin Logo" class="h-12 mx-auto mb-4">
+          <p class="italic mb-4">"Savoir-Frères a transformé notre présence sur les réseaux sociaux. Nos ventes ont augmenté de 30% en 3 mois !" - <a href="https://constructiondesiletslarkin.ca" target="_blank" class="text-blue-600 hover:underline">Construction Désilets-Larkin Inc.</a></p>
+        </div>
+        <div class="testimonial-block mx-auto max-w-lg">
+          <p class="italic mb-4">"Leur stratégie personnalisée a fait des merveilles pour notre boutique. Merci Savoir-Frères !" - Boutique Mode Étoile</p>
+        </div>
+        <a href="#order" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg text-base font-semibold inline-block mt-4" aria-label="See how we can help you">See How We Can Help You ➔</a>
       </div>
       <div class="text-center">
         <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Travailler avec nous">Travailler Avec Nous ➔</a>
@@ -369,7 +380,7 @@
   <!-- Sticky Footer CTA -->
   <div class="sticky-footer bg-blue-600 text-white py-4 text-center">
     <p class="text-lg mb-2">Ne manquez pas cette opportunité !</p>
-    <a href="#order" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg text-lg font-semibold pulse" aria-label="Réserver une consultation gratuite maintenant">Réservez Votre Consultation Gratuite ➔</a>
+    <a href="#order" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg text-lg font-semibold pulse" aria-label="Réserver une consultation gratuite maintenant">Réservez Maintenant ➔</a>
   </div>
 
   <!-- JavaScript for Animations, Quiz, Personalization, and Sticky Footer -->
