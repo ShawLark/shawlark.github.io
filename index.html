@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Croissance Savoir-Frères : Agence de marketing stratégique pour petites entreprises à Trois-Rivières. Boostez vos ventes avec nos solutions créatives et analytiques.">
-  <title>Croissance Savoir-Frères - Marketing Stratégique pour Petites Entreprises</title>
+  <meta name="description" content="Boost your small business with Savoir-Frères, a Trois-Rivières marketing agency. Get your free guide on 5 marketing strategies and book a free consultation today!">
+  <meta name="keywords" content="marketing IA Trois-Rivières, marketing numérique Trois-Rivières, petites entreprises, Savoir-Frères, campagnes stratégiques">
+  <meta name="author" content="Savoir-Frères">
+  <title>Croissance Savoir-Frères - Marketing Numérique à Trois-Rivières</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5TJFHXDC');</script>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
@@ -17,155 +27,422 @@
   </script>
   <!-- Mailchimp Embed Script -->
   <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/YOUR_MAILCHIMP_USER_ID.js");</script>
+  <!-- Tawk.to Live Chat Script -->
+  <script>
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/YOUR_TAWK_PROPERTY_ID/default';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!-- HubSpot Embed Script -->
+  <script src="https://js.hs-scripts.com/YOUR_HUBSPOT_ID.js" async defer></script>
+  <!-- Hotjar Tracking Code -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
   <style>
-    body { font-family: 'Arial', sans-serif; }
-    .cta-button { transition: background-color 0.3s; }
-    .cta-button:hover { background-color: #c2410c; }
-    .timer { color: #e53e3e; font-weight: bold; }
+    body { font-family: 'Inter', sans-serif; background-color: #F5F5F4; }
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+    .cta-button { transition: all 0.3s ease; min-height: 48px; min-width: 48px; }
+    .cta-button:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+    .cta-button.pulse { animation: pulse 2s infinite; }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
     .form-label { margin-bottom: 0.5rem; }
-    .form-input { border: 2px solid #cbd5e0; border-radius: 0.375rem; padding: 0.5rem; width: 100%; }
-    .form-input:focus { outline: none; border-color: #f6ad55; }
+    .form-input { background-color: #FFFFFF; color: #2D3748; border: 2px solid #CBD5E0; border-radius: 0.375rem; padding: 0.75rem; width: 100%; font-size: 1rem; }
+    .form-input::placeholder { color: #A0AEC0; }
+    .form-input:focus { outline: none; border-color: #F97316; box-shadow: 0 0 5px rgba(249, 115, 22, 0.3); }
     .watermark { opacity: 0.1; position: absolute; bottom: 10px; right: 10px; width: 100px; }
+    .sticky-footer { position: fixed; bottom: 0; width: 100%; z-index: 10; background: #2B6CB0; transition: opacity 0.3s ease; }
+    .sticky-footer.hidden { animation: magicDisappear 1s forwards; }
+    @keyframes magicDisappear {
+      0% { opacity: 1; transform: scale(1) rotate(0deg); }
+      50% { opacity: 0.5; transform: scale(0.9) rotate(5deg); }
+      100% { opacity: 0; transform: scale(0.8) rotate(10deg); display: none; }
+    }
+    .sticky-footer::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 215, 0, 0.8);
+      border-radius: 50%;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      animation: sparkle 1s infinite;
+    }
+    @keyframes sparkle {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    }
+    .section-animate { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .section-animate.visible { opacity: 1; transform: translateY(0); }
+    .hero-section { background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)); background-size: cover; background-position: center; height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; }
+    .opt-in-section { background: #2B6CB0; position: relative; }
+    .text-shadow { text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); }
+    .confirmation-message { display: none; background: #FFFFFF; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); text-align: center; max-width: 90%; margin: 0 auto; }
+    .confirmation-message.visible { display: block; }
+    .carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+    .carousel img { scroll-snap-align: start; flex-shrink: 0; margin-right: 1rem; transition: transform 0.3s ease; }
+    .quiz-container { background: #FFFFFF; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); max-width: 90%; margin: 0 auto; color: #2D3748; }
+    .quiz-container label { font-size: 1rem; margin-bottom: 0.5rem; display: flex; align-items: center; transition: color 0.3s ease; }
+    .quiz-container input[type="radio"] { margin-right: 0.5rem; width: 20px; height: 20px; transition: transform 0.3s ease; }
+    /* Desktop Optimizations */
+    @media (min-width: 1024px) {
+      .container { max-width: 1280px; padding-left: 2rem; padding-right: 2rem; }
+      .hero-section { height: 700px; padding-top: 6rem; padding-bottom: 6rem; }
+      .hero-section h1 { font-size: 4rem; }
+      .hero-section video { width: 640px; height: 360px; }
+      .hero-section .cta-button { font-size: 1.25rem; padding: 1rem 2rem; }
+      .hero-section .cta-button:hover { background-color: #FB923C; }
+      .opt-in-section p { font-size: 1.25rem; }
+      .quiz-container { max-width: 600px; padding: 2rem; }
+      .quiz-container label { font-size: 1.125rem; }
+      .quiz-container label:hover { color: #F97316; }
+      .quiz-container input[type="radio"]:hover { transform: scale(1.1); }
+      .form-input { padding: 1rem; font-size: 1.125rem; }
+      .confirmation-message { max-width: 600px; padding: 3rem; }
+      .confirmation-message h2 { font-size: 1.875rem; }
+      .confirmation-message p { font-size: 1.125rem; }
+      .landing-section h2 { font-size: 2.5rem; }
+      .landing-section p { font-size: 1.25rem; }
+      .carousel { max-width: 1000px; margin: 0 auto; }
+      .carousel img { height: 60px; margin-right: 2rem; }
+      .carousel img:hover { transform: scale(1.1); }
+      .principal-section h2 { font-size: 2.5rem; }
+      .principal-section p { font-size: 1.125rem; }
+      .principal-section img { height: 300px; }
+      .faq-section h2 { font-size: 2.5rem; }
+      .faq-section p { font-size: 1.125rem; }
+      .order-section h2 { font-size: 2.5rem; }
+      .order-section p { font-size: 1.25rem; }
+      .sticky-footer { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+      .sticky-footer p { font-size: 1.25rem; }
+      .sticky-footer .cta-button { font-size: 1.125rem; padding: 0.75rem 2rem; }
+      .sticky-footer .cta-button:hover { background-color: #FB923C; }
+    }
+    @media (max-width: 768px) {
+      .hero-section { height: 400px; }
+      .form-input { padding: 0.5rem; font-size: 0.9rem; }
+      .confirmation-message { padding: 1.5rem; max-width: 100%; }
+      .cta-button { font-size: 1rem; padding: 0.75rem 1.5rem; }
+      .quiz-container label { font-size: 0.9rem; }
+      .quiz-container input[type="radio"] { width: 16px; height: 16px; }
+    }
   </style>
 </head>
-<body class="bg-gray-100 relative">
+<body class="relative">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TJFHXDC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- Header with Logo -->
-<header class="bg-white py-4 shadow">
-  <div class="container mx-auto px-4 flex justify-center">
-    <img src="savoir-freres-logo.png" alt="Savoir-Frères Logo" class="h-12">
-  </div>
-</header>
+  <!-- Hero Section with Video -->
+  <section class="hero-section section-animate">
+    <div class="container mx-auto px-4">
+      <img src="savoir-freres-logo.png" alt="Logo Savoir-Frères - Marketing Numérique" class="h-16 mb-6 mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 text-shadow">Boostez Vos Ventes avec Savoir-Frères</h1>
+      <video class="mx-auto mb-6 rounded-lg shadow-lg" width="320" height="180" autoplay muted loop playsinline>
+        <source src="https://example.com/savoir-freres-success-story.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+      <a href="#opt-in" id="hero-cta" class="cta-button bg-[#F97316] text-white py-3 px-8 rounded-lg text-lg font-semibold pulse" aria-label="Démarrez votre croissance">Démarrez Votre Croissance Aujourd’hui</a>
+    </div>
+  </section>
 
-<!-- Opt-In Page -->
-<section id="opt-in" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-orange-300 text-white relative">
-  <div class="container mx-auto px-4 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">Boostez Vos Ventes avec Savoir-Frères</h1>
-    <p class="text-lg md:text-xl mb-4">Obtenez des clients fidèles avec Savoir-Frères.</p>
-    <p class="text-lg md:text-xl mb-8">Téléchargez notre guide GRATUIT : <strong>"5 Stratégies Marketing pour Petites Entreprises"</strong>. Offre à durée limitée !</p>
-    <div class="timer mb-6" id="countdown">Se termine dans : <span id="timer">23:59:59</span></div>
-    <form action="//croissancesavoirfreres.us7.list-manage.com/subscribe/post?u=YOUR_MAILCHIMP_USER_ID&id=YOUR_FORM_ID" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire d'inscription au guide gratuit">
-      <div>
-        <label for="mce-EMAIL" class="form-label text-white">Adresse e-mail</label>
-        <input type="email" name="EMAIL" id="mce-EMAIL" class="form-input" placeholder="Entrez votre e-mail" required aria-required="true">
+  <!-- Opt-In Section with Interactive Quiz -->
+  <section id="opt-in" class="py-16 opt-in-section text-white relative section-animate">
+    <div class="container mx-auto px-4 text-center">
+      <div id="opt-in-content">
+        <p class="text-lg md:text-xl mb-4">Associez-vous à Savoir-Frères pour Attirer des Clients Fidèles</p>
+        <div class="quiz-container mb-8">
+          <h3 class="text-xl font-semibold mb-4 text-[#F97316]">Quel est Votre Plus Grand Défi Marketing ?</h3>
+          <form id="quiz-form" class="flex flex-col gap-4">
+            <label class="flex items-center">
+              <input type="radio" name="challenge" value="visibility" class="mr-2" required>
+              Manque de visibilité
+            </label>
+            <label class="flex items-center">
+              <input type="radio" name="challenge" value="leads" class="mr-2" required>
+              Pas assez de prospects
+            </label>
+            <label class="flex items-center">
+              <input type="radio" name="challenge" value="sales" class="mr-2" required>
+              Faibles ventes
+            </label>
+            <button type="button" onclick="showQuizResult()" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg">Voir Votre Solution ➔</button>
+          </form>
+          <p id="quiz-result" class="mt-4 text-lg hidden">Téléchargez notre guide GRATUIT : <strong>"5 Stratégies Marketing pour Petites Entreprises"</strong> pour résoudre ce défi !</p>
+        </div>
+        <form action="//croissancesavoirfreres.us7.list-manage.com/subscribe/post?u=YOUR_MAILCHIMP_USER_ID&id=YOUR_FORM_ID" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire d'inscription au guide gratuit">
+          <div>
+            <label for="mce-EMAIL" class="form-label text-white">Adresse e-mail</label>
+            <input type="email" name="EMAIL" id="mce-EMAIL" class="form-input" placeholder="Entrez votre e-mail" required aria-required="true">
+          </div>
+          <div>
+            <label for="mce-FNAME" class="form-label text-white">Prénom</label>
+            <input type="text" name="FNAME" id="mce-FNAME" class="form-input" placeholder="Entrez votre prénom" required aria-required="true">
+          </div>
+          <button type="submit" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Télécharger le guide gratuit">Télécharger Maintenant ➔</button>
+        </form>
+        <p class="mt-4 text-sm">Nous respectons votre vie privée. Vos données sont sécurisées avec Mailchimp.</p>
       </div>
-      <div>
-        <label for="mce-FNAME" class="form-label text-white">Prénom</label>
-        <input type="text" name="FNAME" id="mce-FNAME" class="form-input" placeholder="Entrez votre prénom" required aria-required="true">
-      </div>
-      <button type="submit" class="cta-button bg-orange-400 text-white py-3 px-6 rounded-lg text-lg font-semibold" aria-label="Télécharger le guide gratuit">Télécharger Maintenant</button>
-    </form>
-    <p class="mt-4 text-sm">Nous respectons votre vie privée. Vos données sont sécurisées avec Mailchimp.</p>
-  </div>
-  <img src="copy-qc-logo.png" alt="COPY QC Logo Watermark" class="watermark">
-</section>
-
-<!-- Landing Page -->
-<section id="landing" class="py-16 bg-white">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-orange-400">Savoir-Frères : Votre Partenaire Marketing à Trois-Rivières</h2>
-    <p class="text-lg mb-4">Obtenez des clients fidèles avec Savoir-Frères.</p>
-    <p class="text-lg mb-8">Nous sommes deux frères, alliant créativité et analyse pour créer des campagnes marketing uniques qui font croître les ventes des petites entreprises.</p>
-    <div class="grid md:grid-cols-3 gap-8 mb-12">
-      <div>
-        <h3 class="text-xl font-semibold mb-2 text-blue-600">Stratégie Personnalisée</h3>
-        <p>Des plans marketing sur mesure pour répondre aux besoins de votre entreprise.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2 text-blue-600">Publicité Sociale</h3>
-        <p>Campagnes percutantes sur les réseaux sociaux pour attirer vos clients idéaux.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2 text-blue-600">Résultats Mesurables</h3>
-        <p>Analyse approfondie pour optimiser chaque dollar investi.</p>
+      <div id="confirmation-message" class="confirmation-message">
+        <h2 class="text-2xl font-bold mb-4 text-[#F97316]">Merci de Votre Inscription !</h2>
+        <p class="text-lg mb-4 text-gray-800">Votre guide <strong>"5 Stratégies Marketing pour Petites Entreprises"</strong> a été envoyé à votre adresse e-mail. Vérifiez votre boîte de réception (et vos spams) !</p>
+        <p class="text-lg mb-6 text-gray-800">Profitez de notre <strong>consultation stratégique gratuite</strong> (valeur de 200$) pour discuter de vos objectifs.</p>
+        <button onclick="scrollToOrder()" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réserver ma consultation">Réserver Maintenant ➔</button>
       </div>
     </div>
-    <a href="#order" class="cta-button bg-orange-400 text-white py-3 px-6 rounded-lg text-lg font-semibold" aria-label="Réserver une consultation">Réserver une Consultation Gratuite</a>
-  </div>
-</section>
+    <img src="copy-qc-logo.png" alt="Logo COPY QC - Symbole de Québec" class="watermark">
+  </section>
 
-<!-- Thank You Page -->
-<section id="thank-you" class="min-h-screen flex items-center justify-center bg-gray-200">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-orange-400">Merci de Votre Inscription !</h2>
-    <p class="text-lg mb-8">Votre guide <strong>"5 Stratégies Marketing pour Petites Entreprises"</strong> a été envoyé à votre adresse e-mail. Vérifiez votre boîte de réception (et vos spams) !</p>
-    <p class="text-lg mb-8">Profitez de notre <strong>consultation stratégique gratuite</strong> (valeur de 200$) pour discuter de vos objectifs. Offre valable 48h seulement !</p>
-    <a href="#order" class="cta-button bg-orange-400 text-white py-3 px-6 rounded-lg text-lg font-semibold" aria-label="Réserver ma consultation maintenant">Réserver Maintenant</a>
-  </div>
-</section>
-
-<!-- Principal Page -->
-<section id="principal" class="py-16 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-orange-400">Pourquoi Choisir Savoir-Frères ?</h2>
-    <div class="grid md:grid-cols-2 gap-8 mb-12">
-      <div>
-        <h3 class="text-xl font-semibold mb-2 text-blue-600">Qui Sommes-Nous ?</h3>
-        <img src="two-brothers.png" alt="Les deux frères de Savoir-Frères travaillant ensemble" class="w-full h-48 object-cover mb-4 rounded-lg">
-        <p>Savoir-Frères, c’est l’histoire de deux frères de Trois-Rivières, passionnés par le marketing. Nous combinons créativité et données pour offrir des solutions qui font la différence.</p>
+  <!-- Landing Page -->
+  <section id="landing" class="py-20 bg-white section-animate landing-section">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#F97316]">Votre Agence de Marketing Numérique à Trois-Rivières</h2>
+      <p class="text-lg mb-8">Nous sommes deux frères, alliant créativité et analyse pour créer des campagnes marketing uniques qui font croître les ventes des petites entreprises.</p>
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Stratégie Personnalisée</h3>
+          <p>Des plans marketing sur mesure pour répondre aux besoins de votre entreprise.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Publicité Sociale</h3>
+          <p>Campagnes percutantes sur les réseaux sociaux pour attirer vos clients idéaux.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Résultats Mesurables</h3>
+          <p>Analyse approfondie pour optimiser chaque dollar investi.</p>
+        </div>
       </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2 text-blue-600">Notre Mission</h3>
-        <p>Aider les petites entreprises locales à prospérer grâce à des stratégies marketing modernes, centrées sur le consommateur.</p>
+      <!-- AI-Driven Marketing Section -->
+      <div class="bg-gray-100 p-8 rounded-lg shadow-lg mb-12">
+        <h3 class="text-2xl font-bold mb-4 text-blue-600">Marketing Propulsé par l’IA</h3>
+        <p class="text-lg mb-4">À Trois-Rivières, nous utilisons l’intelligence artificielle pour offrir des campagnes prédictives, personnalisées et automatisées. Attirez plus de clients avec des solutions modernes !</p>
+        <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Découvrir les solutions IA">Découvrir Nos Solutions IA ➔</a>
+      </div>
+      <!-- Stronger CTA -->
+      <div class="bg-blue-600 text-white p-8 rounded-lg shadow-lg mb-12">
+        <h3 class="text-2xl font-bold mb-4">Prêt à Transformer Votre Marketing ?</h3>
+        <p class="text-lg mb-4">Réservez une consultation gratuite dès aujourd’hui et découvrez comment nous pouvons booster vos ventes !</p>
+        <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réserver une consultation gratuite">Réserver Maintenant ➔</a>
+      </div>
+      <!-- Client Logos (Social Proof) -->
+      <div class="mb-12">
+        <h3 class="text-xl font-semibold mb-4 text-blue-600">Ils Nous Font Confiance</h3>
+        <div class="carousel">
+          <img src="https://via.placeholder.com/100x50?text=Client1" alt="Logo Client 1" class="h-12">
+          <img src="https://via.placeholder.com/100x50?text=Client2" alt="Logo Client 2" class="h-12">
+          <img src="https://via.placeholder.com/100x50?text=Client3" alt="Logo Client 3" class="h-12">
+        </div>
+      </div>
+      <!-- Featured In Section -->
+      <div class="mb-12">
+        <h3 class="text-xl font-semibold mb-4 text-blue-600">Présenté Dans</h3>
+        <div class="carousel">
+          <img src="https://via.placeholder.com/100x50?text=Media1" alt="Logo Media 1" class="h-12">
+          <img src="https://via.placeholder.com/100x50?text=Media2" alt="Logo Media 2" class="h-12">
+          <img src="https://via.placeholder.com/100x50?text=Media3" alt="Logo Media 3" class="h-12">
+        </div>
       </div>
     </div>
-    <div class="text-center">
-      <h3 class="text-xl font-semibold mb-4 text-blue-600">Témoignages</h3>
-      <p class="italic mb-4">"Savoir-Frères a transformé notre présence sur les réseaux sociaux. Nos ventes ont augmenté de 30% en 3 mois !" - Construction Désilets-Larkin Inc.</p>
-      <a href="#order" class="cta-button bg-orange-400 text-white py-3 px-6 rounded-lg text-lg font-semibold" aria-label="Travailler avec nous">Travailler Avec Nous</a>
+  </section>
+
+  <!-- Principal Page -->
+  <section id="principal" class="py-20 bg-white section-animate principal-section">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-[#F97316]">Pourquoi Choisir Savoir-Frères ?</h2>
+      <div class="grid md:grid-cols-2 gap-12 mb-12">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Qui Sommes-Nous ?</h3>
+          <img src="two-brothers.png" alt="Les deux frères de Savoir-Frères travaillant ensemble" class="w-full h-48 object-cover mb-4 rounded-lg shadow">
+          <p>Savoir-Frères, c’est l’histoire de deux frères de Trois-Rivières, passionnés par le marketing. Nous combinons créativité et données pour offrir des solutions qui font la différence.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Notre Mission</h3>
+          <p>Aider les petites entreprises locales à prospérer grâce à des stratégies marketing modernes, centrées sur le consommateur.</p>
+        </div>
+      </div>
+      <!-- Certifications Section -->
+      <div class="mb-12 text-center">
+        <h3 class="text-xl font-semibold mb-4 text-blue-600">Nos Certifications</h3>
+        <div class="flex justify-center gap-6 flex-wrap">
+          <img src="https://via.placeholder.com/100x50?text=Google-Ads" alt="Certification Google Ads" class="h-12">
+          <img src="https://via.placeholder.com/100x50?text=Meta-Ads" alt="Partenaire Meta Ads" class="h-12">
+        </div>
+      </div>
+      <!-- Portfolio Section with Vertically Collapsed Sections -->
+      <div class="mb-12">
+        <h3 class="text-xl font-semibold mb-4 text-blue-600 text-center">Nos Réalisations</h3>
+        <div class="space-y-6">
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <img src="https://via.placeholder.com/300x200?text=Projet1" alt="Projet 1 - Campagne Marketing" class="w-full h-32 object-cover mb-4 rounded">
+            <h4 class="text-lg font-semibold mb-2">Campagne pour Restaurant Local</h4>
+            <p>Augmentation des réservations de 40% en 2 mois grâce à une campagne ciblée sur les réseaux sociaux.</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <img src="https://via.placeholder.com/300x200?text=Projet2" alt="Projet 2 - Campagne Marketing" class="w-full h-32 object-cover mb-4 rounded">
+            <h4 class="text-lg font-semibold mb-2">Boutique de Mode</h4>
+            <p>Boost des ventes en ligne de 25% avec une stratégie de contenu optimisée.</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <img src="https://via.placeholder.com/300x200?text=Projet3" alt="Projet 3 - Campagne Marketing" class="w-full h-32 object-cover mb-4 rounded">
+            <h4 class="text-lg font-semibold mb-2">Entreprise de Construction</h4>
+            <p>Visibilité accrue avec une hausse de 30% des demandes de devis.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonials -->
+      <div class="text-center mb-12">
+        <h3 class="text-xl font-semibold mb-4 text-blue-600">Témoignages</h3>
+        <p class="italic mb-4">"Savoir-Frères a transformé notre présence sur les réseaux sociaux. Nos ventes ont augmenté de 30% en 3 mois !" - Construction Désilets-Larkin Inc.</p>
+        <p class="italic mb-4">"Leur stratégie personnalisée a fait des merveilles pour notre boutique. Merci Savoir-Frères !" - Boutique Mode Étoile</p>
+      </div>
+      <div class="text-center">
+        <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Travailler avec nous">Travailler Avec Nous ➔</a>
+      </div>
     </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-gray-100 section-animate faq-section">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-[#F97316]">Questions Fréquentes</h2>
+      <div class="space-y-8 max-w-3xl mx-auto">
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Quels types d’entreprises aidez-vous ?</h3>
+          <p>Nous travaillons principalement avec des petites entreprises locales à Trois-Rivières, comme des restaurants, boutiques, et entreprises de services.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Combien de temps faut-il pour voir des résultats avec Savoir-Frères ?</h3>
+          <p>La plupart de nos clients voient des résultats significatifs dans les 1 à 3 mois, selon la stratégie mise en place.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Quel est le coût de vos services ?</h3>
+          <p>Nous offrons des plans adaptés à chaque budget. Réservez une consultation gratuite pour discuter de vos besoins !</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Page -->
+  <section id="order" class="py-20 opt-in-section text-white relative section-animate order-section">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt à Faire Croître Votre Entreprise ?</h2>
+      <p class="text-lg mb-8">Réservez votre consultation stratégique gratuite (30 min) avec Savoir-Frères. Places limitées !</p>
+      <form action="//croissancesavoirfreres.us7.list-manage.com/subscribe/post?u=YOUR_MAILCHIMP_USER_ID&id=YOUR_FORM_ID" method="post" id="mc-order-form" name="mc-order-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire de réservation de consultation">
+        <div>
+          <label for="order-EMAIL" class="form-label text-white">Adresse e-mail</label>
+          <input type="email" name="EMAIL" id="order-EMAIL" class="form-input" placeholder="Entrez votre e-mail" required aria-required="true">
+        </div>
+        <div>
+          <label for="order-FNAME" class="form-label text-white">Prénom</label>
+          <input type="text" name="FNAME" id="order-FNAME" class="form-input" placeholder="Entrez votre prénom" required aria-required="true">
+        </div>
+        <div>
+          <label for="order-BUSINESS" class="form-label text-white">Nom de l’entreprise</label>
+          <input type="text" name="BUSINESS" id="order-BUSINESS" class="form-input" placeholder="Entrez le nom de votre entreprise">
+        </div>
+        <button type="submit" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réserver ma consultation">Réserver Ma Consultation ➔</button>
+      </form>
+    </div>
+    <img src="copy-qc-logo.png" alt="Logo COPY QC - Symbole de Québec" class="watermark">
+  </section>
+
+  <!-- Sticky Footer CTA -->
+  <div class="sticky-footer bg-blue-600 text-white py-4 text-center">
+    <p class="text-lg mb-2">Ne manquez pas cette opportunité !</p>
+    <a href="#order" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg text-lg font-semibold pulse" aria-label="Réserver une consultation gratuite maintenant">Réservez Votre Consultation Gratuite ➔</a>
   </div>
-</section>
 
-<!-- Order Page -->
-<section id="order" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 to-orange-300 text-white relative">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt à Faire Croître Votre Entreprise ?</h2>
-    <p class="text-lg mb-8">Réservez votre consultation stratégique gratuite (30 min) avec Savoir-Frères. Places limitées cette semaine !</p>
-    <div class="timer mb-6">Offre expire dans : <span id="order-timer">47:59:59</span></div>
-    <form action="//croissancesavoirfreres.us7.list-manage.com/subscribe/post?u=YOUR_MAILCHIMP_USER_ID&id=YOUR_FORM_ID" method="post" id="mc-order-form" name="mc-order-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire de réservation de consultation">
-      <div>
-        <label for="order-EMAIL" class="form-label text-white">Adresse e-mail</label>
-        <input type="email" name="EMAIL" id="order-EMAIL" class="form-input" placeholder="Entrez votre e-mail" required aria-required="true">
-      </div>
-      <div>
-        <label for="order-FNAME" class="form-label text-white">Prénom</label>
-        <input type="text" name="FNAME" id="order-FNAME" class="form-input" placeholder="Entrez votre prénom" required aria-required="true">
-      </div>
-      <div>
-        <label for="order-BUSINESS" class="form-label text-white">Nom de l’entreprise</label>
-        <input type="text" name="BUSINESS" id="order-BUSINESS" class="form-input" placeholder="Entrez le nom de votre entreprise">
-      </div>
-      <button type="submit" class="cta-button bg-orange-400 text-white py-3 px-6 rounded-lg text-lg font-semibold" aria-label="Réserver ma consultation">Réserver Ma Consultation</button>
-    </form>
-  </div>
-  <img src="copy-qc-logo.png" alt="COPY QC Logo Watermark" class="watermark">
-</section>
+  <!-- JavaScript for Animations, Quiz, Personalization, and Sticky Footer -->
+  <script>
+    // Section Animations
+    function handleScrollAnimations() {
+      const sections = document.querySelectorAll('.section-animate');
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (sectionTop < windowHeight * 0.8) {
+          section.classList.add('visible');
+        }
+      });
+    }
 
-<!-- JavaScript for Countdown Timer -->
-<script>
-  function startTimer(duration, display) {
-    let timer = duration, hours, minutes, seconds;
-    setInterval(function () {
-      hours = parseInt(timer / 3600, 10);
-      minutes = parseInt((timer % 3600) / 60, 10);
-      seconds = parseInt(timer % 60, 10);
-      hours = hours < 10 ? "0" + hours : hours;
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-      display.textContent = hours + ":" + minutes + ":" + seconds;
-      if (--timer < 0) timer = duration;
-    }, 1000);
-  }
-  window.onload = function () {
-    let oneDay = 24 * 60 * 60;
-    let twoDays = 48 * 60 * 60;
-    let timerDisplay = document.querySelector('#timer');
-    let orderTimerDisplay = document.querySelector('#order-timer');
-    if (timerDisplay) startTimer(oneDay, timerDisplay);
-    if (orderTimerDisplay) startTimer(twoDays, orderTimerDisplay);
-  };
-</script>
+    // Scroll to Order Section
+    function scrollToOrder() {
+      document.querySelector('#order').scrollIntoView({ behavior: 'smooth' });
+    }
 
+    // Handle Quiz Interaction
+    function showQuizResult() {
+      const quizResult = document.getElementById('quiz-result');
+      quizResult.classList.remove('hidden');
+      document.getElementById('quiz-form').style.display = 'none';
+    }
+
+    // Handle Form Submission
+    document.getElementById('mc-embedded-subscribe-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      setTimeout(() => {
+        document.getElementById('opt-in-content').style.display = 'none';
+        document.getElementById('confirmation-message').classList.add('visible');
+        document.querySelector('#opt-in').scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+    });
+
+    // Personalize Hero CTA with HubSpot
+    window.addEventListener('message', function(event) {
+      if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+        const returningVisitor = localStorage.getItem('returningVisitor');
+        if (returningVisitor) {
+          document.getElementById('hero-cta').textContent = 'Bienvenue de retour ! Prêt à grandir ?';
+        }
+        localStorage.setItem('returningVisitor', 'true');
+      }
+    });
+
+    // Handle Sticky Footer Disappearance
+    function handleStickyFooter() {
+      const stickyFooter = document.querySelector('.sticky-footer');
+      const orderSection = document.querySelector('#order');
+      const orderSectionTop = orderSection.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (orderSectionTop <= windowHeight * 0.1) {
+        stickyFooter.classList.add('hidden');
+      } else {
+        stickyFooter.classList.remove('hidden');
+        stickyFooter.style.display = 'block'; // Ensure it reappears when scrolling up
+      }
+    }
+
+    window.onload = function () {
+      handleScrollAnimations();
+      handleStickyFooter();
+    };
+
+    window.addEventListener('scroll', function() {
+      handleScrollAnimations();
+      handleStickyFooter();
+    });
+  </script>
 </body>
 </html>
