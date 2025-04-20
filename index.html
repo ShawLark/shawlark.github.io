@@ -81,7 +81,7 @@
     }
     .section-animate { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .section-animate.visible { opacity: 1; transform: translateY(0); }
-    .hero-section { background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(43, 108, 176, 0.4)); background-size: 200% 200%; animation: gradientShift 15s ease infinite; height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
+    .hero-section { background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(43, 108, 176, 0.4)); background-size: 200% 200%; animation: gradientShift 15s ease infinite; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -123,11 +123,13 @@
       header { padding: 1rem 2rem; }
       .header-logo img { height: 48px; }
       .nav-menu a { font-size: 1.125rem; }
-      .hero-section { height: 700px; padding-top: 6rem; padding-bottom: 6rem; }
-      .hero-section h1 { font-size: 4rem; }
-      .hero-section h2 { font-size: 1.5rem; }
-      .hero-section iframe { width: 640px; height: 360px; }
-      .hero-section .cta-button { font-size: 1.25rem; padding: 1rem 2rem; }
+      .hero-section { height: 800px; padding-top: 5rem; padding-bottom: 5rem; }
+      .hero-section .container { display: flex; flex-direction: column; gap: 1rem; }
+      .hero-section img { height: 56px; margin-bottom: 1rem; }
+      .hero-section h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+      .hero-section h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+      .hero-section iframe { width: 560px; height: 315px; margin-bottom: 1rem; }
+      .hero-section .cta-button { font-size: 1.125rem; padding: 0.75rem 1.5rem; }
       .hero-section .cta-button:hover { background-color: #FB923C; }
       .opt-in-section p { font-size: 1.25rem; }
       .quiz-container { max-width: 600px; padding: 2rem; }
@@ -161,13 +163,13 @@
       .header-logo img { height: 32px; }
       .nav-menu { display: none; }
       .hamburger { display: block; }
-      .hero-section { height: 300px; padding-top: calc(3rem + env(safe-area-inset-top)); }
-      .hero-section .container { display: flex; flex-direction: column; gap: 0.25rem; }
-      .hero-section img { margin-bottom: 0.25rem; height: 48px; }
-      .hero-section h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
-      .hero-section h2 { font-size: 0.875rem; margin-bottom: 0.25rem; }
-      .hero-section iframe { width: 100%; height: 140px; margin-bottom: 0.25rem; }
-      .hero-section .cta-button { font-size: 0.875rem; padding: 0.5rem 1.5rem; max-width: 180px; margin: 0 auto; }
+      .hero-section { height: 400px; padding-top: calc(3rem + env(safe-area-inset-top)); }
+      .hero-section .container { display: flex; flex-direction: column; gap: 0.5rem; }
+      .hero-section img { margin-bottom: 0.5rem; height: 40px; }
+      .hero-section h1 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+      .hero-section h2 { font-size: 0.75rem; margin-bottom: 0.5rem; }
+      .hero-section iframe { width: 100%; height: 120px; margin-bottom: 0.5rem; }
+      .hero-section .cta-button { font-size: 0.75rem; padding: 0.375rem 1rem; max-width: 160px; margin: 0 auto; }
       .form-input { padding: 0.5rem; font-size: 0.9rem; }
       .confirmation-message { padding: 1.5rem; max-width: 100%; }
       .cta-button { font-size: 1rem; padding: 0.75rem 1.5rem; }
@@ -214,8 +216,8 @@
       <a href="https://www.youtube.com/@Savoir-Frères/featured" target="_blank" aria-label="Watch our Video Sales Letter on YouTube">
         <img src="savoir-freres-logo.png" alt="Logo Savoir-Frères - Marketing Numérique" class="h-16 mb-6 mx-auto">
       </a>
-      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 text-shadow">Faites Croître Votre Entreprise Locale avec Savoir-Frères</h1>
-      <h2 class="text-lg md:text-xl text-white mb-6 text-shadow">Nous aidons les petites entreprises de Trois-Rivières à prospérer grâce à des stratégies modernes.</h2>
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 text-shadow">Boostez Vos Ventes avec Savoir-Frères</h1>
+      <h2 class="text-lg md:text-xl text-white mb-6 text-shadow">Aider les PME à prospérer grâce à des stratégies modernes... C'est notre Priorité!</h2>
       <iframe class="mx-auto mb-6 rounded-lg shadow-lg" width="320" height="180" src="https://www.youtube.com/embed/c21fxJilfKM?autoplay=1&mute=1&loop=1&playlist=c21fxJilfKM" title="Savoir-Frères Success Story" frameborder="0" allow="autoplay; muted" allowfullscreen></iframe>
       <a href="#opt-in" id="hero-cta" class="cta-button bg-[#F97316] text-white py-3 px-8 rounded-lg text-lg font-semibold pulse" aria-label="Démarrez votre croissance">Démarrez Votre Croissance Aujourd’hui</a>
     </div>
