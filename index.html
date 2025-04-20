@@ -104,28 +104,24 @@
     .quiz-container input[type="radio"] { margin-right: 0.5rem; width: 20px; height: 20px; transition: transform 0.3s ease; }
     .testimonial-block { transition: all 0.3s ease; padding: 1rem; border-radius: 0.5rem; }
     .testimonial-block:hover { transform: scale(1.02); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); background: #F5F5F4; }
-    /* Header Styles */
-    header { position: fixed; top: 0; width: 100%; background: linear-gradient(90deg, #2B6CB0, #4A90E2); background-size: 200% 200%; animation: gradientShift 15s ease infinite; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); z-index: 20; transition: transform 0.3s ease; }
-    header.hidden { transform: translateY(-100%); }
-    .header-container { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; }
-    .header-logo img { height: 40px; }
-    .nav-menu { display: flex; gap: 1.5rem; }
-    .nav-menu a { color: #FFFFFF; font-size: 1rem; font-weight: 500; transition: color 0.3s ease; }
-    .nav-menu a:hover { color: #F97316; }
-    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: #FFFFFF; }
-    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #2B6CB0; padding: 1rem; }
+    /* Hero Menu Styles */
+    .hero-nav { display: flex; gap: 1.5rem; justify-content: center; }
+    .hero-nav a { color: #2B6CB0; font-size: 1rem; font-weight: 500; transition: color 0.3s ease; }
+    .hero-nav a:hover { color: #F97316; }
+    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: #2B6CB0; }
+    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(0, 0, 0, 0.8); padding: 1rem; }
     .mobile-menu.active { display: block; }
-    .mobile-menu a { display: block; color: #FFFFFF; font-size: 1rem; font-weight: 500; padding: 0.5rem 0; text-align: center; transition: color 0.3s ease; }
+    .mobile-menu a { display: block; color: #2B6CB0; font-size: 1rem; font-weight: 500; padding: 0.5rem 0; text-align: center; transition: color 0.3s ease; }
     .mobile-menu a:hover { color: #F97316; }
     /* Desktop Optimizations */
     @media (min-width: 1024px) {
       .container { max-width: 1280px; padding-left: 2rem; padding-right: 2rem; }
-      header { padding: 1rem 2rem; }
-      .header-logo img { height: 48px; }
-      .nav-menu a { font-size: 1.125rem; }
-      .hero-section { height: 800px; padding-top: 5rem; padding-bottom: 5rem; }
-      .hero-section .container { display: flex; flex-direction: column; gap: 1rem; }
-      .hero-section img { height: 56px; margin-bottom: 1rem; }
+      .hero-section { height: 800px; padding-top: 2rem; padding-bottom: 2rem; }
+      .hero-section .container { position: relative; display: flex; flex-direction: column; gap: 1rem; }
+      .hero-section .logo-container { position: absolute; top: 1rem; left: 1rem; }
+      .hero-section img { height: 56px; }
+      .hero-nav { margin-top: 4rem; }
+      .hero-nav a { font-size: 1.125rem; }
       .hero-section h1 { font-size: 3.5rem; margin-bottom: 1rem; }
       .hero-section h2 { font-size: 1.25rem; margin-bottom: 1rem; }
       .hero-section iframe { width: 560px; height: 315px; margin-bottom: 1rem; }
@@ -159,14 +155,14 @@
     }
     /* iPhone 11 Pro Optimizations */
     @media (max-width: 768px) {
-      header { padding: 0.5rem 1rem; }
-      .header-logo img { height: 32px; }
-      .nav-menu { display: none; }
-      .hamburger { display: block; }
-      .hero-section { height: 400px; padding-top: calc(3rem + env(safe-area-inset-top)); }
-      .hero-section .container { display: flex; flex-direction: column; gap: 0.5rem; }
-      .hero-section img { margin-bottom: 0.5rem; height: 40px; }
-      .hero-section h1 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+      .hero-section { height: 400px; padding-top: 1rem; }
+      .hero-section .container { position: relative; display: flex; flex-direction: column; gap: 0.5rem; }
+      .hero-section .logo-container { position: absolute; top: 0.5rem; left: 0.5rem; }
+      .hero-section img { height: 40px; }
+      .hero-nav { display: none; }
+      .hamburger { display: block; position: absolute; top: 0.5rem; right: 0.5rem; }
+      .mobile-menu { top: calc(40px + 0.5rem); }
+      .hero-section h1 { font-size: 1.25rem; margin-bottom: 0.5rem; margin-top: 3rem; }
       .hero-section h2 { font-size: 0.75rem; margin-bottom: 0.5rem; }
       .hero-section iframe { width: 100%; height: 120px; margin-bottom: 0.5rem; }
       .hero-section .cta-button { font-size: 0.75rem; padding: 0.375rem 1rem; max-width: 160px; margin: 0 auto; }
@@ -186,13 +182,15 @@
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TJFHXDC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <a href="#hero" class="header-logo" aria-label="Retour à la page d'accueil">
-        <img src="savoir-freres-logo.png" alt="Logo Savoir-Frères - Marketing Numérique">
-      </a>
-      <nav class="nav-menu" aria-label="Menu de navigation principal">
+  <!-- Hero Section with Integrated Menu -->
+  <section id="hero" class="hero-section section-animate">
+    <div class="container mx-auto px-4">
+      <div class="logo-container">
+        <a href="#hero" aria-label="Retour à la page d'accueil">
+          <img src="savoir-freres-logo.png" alt="Logo Savoir-Frères - Marketing Numérique">
+        </a>
+      </div>
+      <nav class="hero-nav" aria-label="Menu de navigation principal">
         <a href="#opt-in" aria-label="Votre défi marketing">Votre défi marketing?</a>
         <a href="#ai-driven" aria-label="Solutions AI">Solutions AI</a>
         <a href="#portfolio" aria-label="Nos réalisations">Nos réalisations</a>
@@ -207,15 +205,6 @@
         <a href="#testimonials" aria-label="Témoignages">Témoignages</a>
         <a href="#faq" aria-label="FAQ">FAQ</a>
       </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section with YouTube Video -->
-  <section id="hero" class="hero-section section-animate">
-    <div class="container mx-auto px-4">
-      <a href="https://www.youtube.com/@Savoir-Frères/featured" target="_blank" aria-label="Watch our Video Sales Letter on YouTube">
-        <img src="savoir-freres-logo.png" alt="Logo Savoir-Frères - Marketing Numérique" class="h-16 mb-6 mx-auto">
-      </a>
       <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 text-shadow">Boostez Vos Ventes avec Savoir-Frères</h1>
       <h2 class="text-lg md:text-xl text-white mb-6 text-shadow">Aider les PME à prospérer grâce à des stratégies modernes... C'est notre Priorité!</h2>
       <iframe class="mx-auto mb-6 rounded-lg shadow-lg" width="320" height="180" src="https://www.youtube.com/embed/c21fxJilfKM?autoplay=1&mute=1&loop=1&playlist=c21fxJilfKM" title="Savoir-Frères Success Story" frameborder="0" allow="autoplay; muted" allowfullscreen></iframe>
@@ -436,7 +425,7 @@
     <a href="#order" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg text-lg font-semibold pulse" aria-label="Réserver une consultation gratuite maintenant">Réservez Maintenant ➔</a>
   </div>
 
-  <!-- JavaScript for Animations, Quiz, Personalization, Sticky Footer, and Header -->
+  <!-- JavaScript for Animations, Quiz, Personalization, Sticky Footer, and Mobile Menu -->
   <script>
     // Section Animations
     function handleScrollAnimations() {
@@ -492,32 +481,14 @@
       const orderSectionTop = orderSection.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
 
-      // Show sticky footer after Opt-In section bottom is passed
       if (optInSectionBottom <= 0 && orderSectionTop > windowHeight * 0.1) {
         stickyFooter.classList.remove('hidden');
         stickyFooter.classList.add('visible');
       } else if (orderSectionTop <= windowHeight * 0.1) {
-        // Hide sticky footer when Order section is in view
         stickyFooter.classList.add('hidden');
       } else {
-        // Hide sticky footer before Opt-In section bottom is passed
         stickyFooter.classList.remove('visible');
       }
-    }
-
-    // Handle Header Scroll Behavior
-    let lastScrollTop = 0;
-    function handleHeaderScroll() {
-      const header = document.querySelector('header');
-      const currentScrollTop = window.scrollY;
-
-      if (currentScrollTop === 0) {
-        header.classList.remove('hidden'); // Show header at the top
-      } else if (currentScrollTop > lastScrollTop) {
-        header.classList.add('hidden'); // Hide header when scrolling down
-      }
-
-      lastScrollTop = currentScrollTop;
     }
 
     // Handle Mobile Menu Toggle
@@ -542,13 +513,11 @@
     window.onload = function () {
       handleScrollAnimations();
       handleStickyFooter();
-      handleHeaderScroll();
     };
 
     window.addEventListener('scroll', function() {
       handleScrollAnimations();
       handleStickyFooter();
-      handleHeaderScroll();
     });
   </script>
 </body>
