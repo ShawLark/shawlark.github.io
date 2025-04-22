@@ -94,13 +94,34 @@
     .hero-nav { display: flex; gap: 1.5rem; justify-content: center; }
     .hero-nav a { color: #FFFFFF; font-size: 1rem; font-weight: 500; transition: color 0.3s ease; }
     .hero-nav a:hover { color: #F97316; }
+    .hero-nav a:focus,
+    .mobile-menu a:focus {
+      outline: 2px solid #F97316;
+      outline-offset: 2px;
+    }
     .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: #FFFFFF; padding: 0.5rem; background-color: rgba(255, 255, 255, 0.2); border-radius: 0.25rem; }
+    .hamburger:focus {
+      outline: 2px solid #F97316;
+      outline-offset: 2px;
+    }
     .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #000000; padding: 1rem; z-index: 10; }
     .mobile-menu.active { display: block; }
     .mobile-menu a { display: block; color: #FFFFFF; font-size: 1.25rem; font-weight: 500; padding: 1rem; text-align: center; transition: color 0.3s ease; }
     .mobile-menu a:hover { color: #F97316; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
     #cookie-banner { position: fixed; bottom: 0; width: 100%; background: #2B6CB0; color: white; padding: 1rem; text-align: center; z-index: 20; }
     #cookie-banner a { color: #F97316; text-decoration: underline; }
+    .certification-logo { transition: transform 0.3s ease; }
+    .certification-logo:hover { transform: scale(1.1); }
     @media (min-width: 1024px) {
       .container { max-width: 1280px; padding-left: 2rem; padding-right: 2rem; }
       .hero-section { height: 800px; padding-top: 2rem; padding-bottom: 2rem; }
@@ -191,16 +212,19 @@
             <img src="savoir-freres-logo.png" alt="Logo Savoir-Frères - Marketing Numérique">
           </a>
         </div>
-        <div class="hamburger" tabindex="0" aria-label="Ouvrir le menu" role="button" aria-expanded="false">☰</div>
+        <button class="hamburger" tabindex="0" aria-label="Ouvrir le menu de navigation" role="button" aria-expanded="false" aria-controls="mobile-menu">
+          ☰
+        </button>
       </div>
-      <nav class="hero-nav" aria-label="Menu de navigation principal">
+      <nav class="hero-nav" role="navigation" aria-label="Menu de navigation principal">
         <a href="#opt-in" aria-label="Votre défi marketing">Votre Défi Marketing</a>
         <a href="#ai-driven" aria-label="Solutions AI">Solutions AI</a>
         <a href="#portfolio" aria-label="Nos réalisations">Nos Réalisations</a>
         <a href="#testimonials" aria-label="Témoignages">Témoignages</a>
         <a href="#faq" aria-label="FAQ">FAQ</a>
       </nav>
-      <nav class="mobile-menu" aria-label="Menu de navigation mobile">
+      <nav class="mobile-menu" id="mobile-menu" role="menu" aria-labelledby="mobile-menu-label">
+        <span id="mobile-menu-label" class="sr-only">Menu de navigation mobile</span>
         <a href="#opt-in" aria-label="Votre défi marketing">Votre Défi Marketing</a>
         <a href="#ai-driven" aria-label="Solutions AI">Solutions AI</a>
         <a href="#portfolio" aria-label="Nos réalisations">Nos Réalisations</a>
@@ -208,8 +232,8 @@
         <a href="#faq" aria-label="FAQ">FAQ</a>
       </nav>
       <div class="flex flex-col items-center mt-8">
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 text-shadow">Attirez Vos Clients Idéaux au Québec Avant 2026 !</h1>
-        <h2 class="text-lg md:text-xl text-white mb-6 text-shadow">Nous avons triplé les abonnements d’une entreprise de services en 3 mois – votre PME est la prochaine !</h2>
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 text-shadow">Attirez Vos Clients Idéaux au Québec avec des Offres Irrésistibles et l’IA !</h1>
+        <h2 class="text-lg md:text-xl text-white mb-6 text-shadow">Nous avons triplé les conversions d’une PME en 3 mois grâce à des stratégies IA et des contenus émotionnels – votre tour est arrivé !</h2>
         <iframe class="mx-auto mb-6 rounded-lg shadow-lg" width="320" height="180" src="https://www.youtube.com/embed/c21fxJilfKM?autoplay=1&mute=1&loop=1&playlist=c21fxJilfKM" title="Histoire de succès Savoir-Frères" frameborder="0" allow="autoplay; muted" allowfullscreen></iframe>
         <a href="#opt-in" id="hero-cta" class="cta-button bg-[#F97316] text-white py-3 px-8 rounded-lg text-lg font-semibold pulse" aria-label="Réclamez votre audit gratuit">Audit Gratuit – Seulement 5 Places Restantes !</a>
       </div>
@@ -266,7 +290,7 @@
   <section id="landing" class="py-20 bg-white section-animate landing-section">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#F97316]">Vos Experts en Marketing Numérique pour PME Québécoises</h2>
-      <p class="text-lg mb-8">Deux frères aidant les PME québécoises à optimiser leur acquisition client avec des offres irrésistibles, des contenus émotionnellement impactants et des stratégies avancées basées sur l’IA.</p>
+      <p class="text-lg mb-8">Deux frères passionnés qui aident les PME québécoises, physiques ou e-commerce, à créer des offres irrésistibles et à se connecter émotionnellement à leurs clients idéaux grâce à des stratégies marketing modernes et l’IA.</p>
       <div class="grid md:grid-cols-3 gap-12 mb-12">
         <div>
           <h3 class="text-xl font-semibold mb-2 text-blue-600">Offres Irrésistibles</h3>
@@ -281,10 +305,13 @@
           <p>Campagnes basées sur l’IA pour une croissance exponentielle.</p>
         </div>
       </div>
-      <div id="ai-driven" class="bg-gray-100 p-8 rounded-lg shadow-lg mb-12">
-        <h3 class="text-2xl font-bold mb-4 text-blue-600">Marketing Propulsé par l’IA et le Branding</h3>
-        <p class="text-lg mb-4">Au Québec en 2025, l’IA et le Branding sont roi et reine. Attirer des clients idéaux demande une stratégie prédictive et une communication taillée aux besoins réels.</p>
-        <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Découvrez les solutions AI">Vos Solutions IA ➔</a>
+      <div id="ai-driven" class="bg-gray-100 p-8 rounded-lg shadow-lg mb-12 relative" style="background-image: url('chessboard-strategy.png'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-gray-100 opacity-90"></div>
+        <div class="relative z-10">
+          <h3 class="text-2xl font-bold mb-4 text-blue-600">Marketing Propulsé par l’IA et le Branding</h3>
+          <p class="text-lg mb-4">En 2025, l’IA révolutionne le marketing au Québec. Nous utilisons des stratégies modernes et des contenus chargés d’émotion pour connecter votre PME, physique ou e-commerce, à vos clients idéaux.</p>
+          <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Découvrez les solutions AI">Vos Solutions IA ➔</a>
+        </div>
       </div>
       <div class="bg-blue-600 text-white p-8 rounded-lg shadow-lg mb-12">
         <h3 class="text-2xl font-bold mb-4">Prêt à Optimiser Votre Acquisition Client ?</h3>
@@ -317,7 +344,7 @@
         <div>
           <h3 class="text-xl font-semibold mb-2 text-blue-600">Qui Nous Sommes</h3>
           <img src="two-brothers.png" alt="Les deux frères de Savoir-Frères travaillant ensemble" class="w-full h-48 object-cover mb-4 rounded-lg shadow">
-          <p>Nous sommes deux frères passionnés par aider les PME québécoises à prospérer avec des stratégies de marketing émotionnellement impactantes et basées sur l’IA.</p>
+          <p>Nous sommes deux frères dédiés à aider les PME québécoises, physiques et e-commerce, à prospérer grâce à des offres irrésistibles, des contenus émotionnels et des stratégies IA innovantes.</p>
         </div>
         <div>
           <h3 class="text-xl font-semibold mb-2 text-blue-600">Notre Mission</h3>
@@ -327,8 +354,9 @@
       <div class="mb-12 text-center">
         <h3 class="text-xl font-semibold mb-4 text-blue-600">Nos Certifications</h3>
         <div class="flex justify-center gap-6 flex-wrap">
-          <img src="https://via.placeholder.com/100x50?text=Google-Ads" alt="Certification Google Ads" class="h-12">
-          <img src="https://via.placeholder.com/100x50?text=Meta-Ads" alt="Partenaire Meta Ads" class="h-12">
+          <img src="cegep-trois-rivieres-logo.png" alt="Logo du CÉGEP de Trois-Rivières" class="h-12 certification-logo">
+          <img src="ecole-gestion-uqtr-logo.png" alt="Logo de l’École de Gestion UQTR" class="h-12 certification-logo">
+          <img src="online-course-logo.png" alt="Logo du cours en ligne [Nom]" class="h-12 certification-logo">
         </div>
       </div>
       <div id="portfolio" class="mb-12">
@@ -345,10 +373,15 @@
             <p>Augmentation des inscriptions de 30 % avec des Reels émotionnels.</p>
           </div>
           <div class="bg-gray-100 p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/300x200?text=Projet3" alt="Projet 3 - Campagne Marketing" class="w-full h-32 object-cover mb-4 rounded">
-            <h4 class="text-lg font-semibold mb-2">Service de Consultation</h4>
-            <p>40 % de conversions supplémentaires avec des bannières optimisées.</p>
+            <img src="oasis-campaign-proof.png" alt="Preuve de campagne Oasis - Coût par clic bas sur Meta" class="w-full h-32 object-cover mb-4 rounded">
+            <h4 class="text-lg font-semibold mb-2">Campagne Oasis – Lavage Auto à Domicile</h4>
+            <p>Atteint 786 visites uniques et 3,100 vues de page avec un CPC bas sur Meta, augmentant les conversions de 40 %.</p>
           </div>
+        </div>
+        <div class="mt-12">
+          <h3 class="text-xl font-semibold mb-4 text-blue-600 text-center">Performance de la Campagne</h3>
+          <img src="page-views-per-visitor.png" alt="Graphique des visites uniques et vues de page pour la campagne Savoir-Frères" class="w-full h-48 object-contain mb-4 rounded-lg shadow">
+          <p class="text-center">Nos campagnes génèrent un engagement élevé, avec une moyenne de 4,21 pages par visite, maximisant l’impact de chaque clic.</p>
         </div>
       </div>
       <div id="testimonials" class="text-center mb-12">
@@ -384,6 +417,14 @@
           <h3 class="text-xl font-semibold mb-2 text-blue-600">Combien coûtent vos services ?</h3>
           <p>Nous proposons des plans adaptés à tous les budgets. Réservez un appel GRATUIT pour discuter de vos besoins !</p>
         </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Comment utilisez-vous l’IA pour améliorer mes résultats marketing ?</h3>
+          <p>Nous utilisons l’IA pour analyser les comportements de vos clients, optimiser vos campagnes publicitaires et créer des contenus ciblés qui convertissent plus rapidement.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Qu’est-ce qui vous différencie des autres agences marketing au Québec ?</h3>
+          <p>Nous combinons des stratégies modernes basées sur l’IA avec une approche émotionnelle unique, axée sur des contenus impactants qui connectent votre PME à ses clients idéaux.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -392,26 +433,18 @@
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt à Optimiser Votre Acquisition Client au Québec ?</h2>
       <p class="text-lg mb-8">Réservez votre appel stratégique GRATUIT de 30 minutes avec Savoir-Frères. Places limitées !</p>
-      <form action="https://us1.list-manage.com/subscribe/post?u=0961fb9de08745f91fd9bff05&id=d8baa7fd0e" method="post" id="mc-order-form" name="mc-order-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire de réservation de consultation">
+      <form action="https://us1.list-manage.com/subscribe/post?u=0961fb9de08745f91fd9bff05&id=d8baa7fd0e" method="post" id="mc-order-form" name="mc-order-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire de réservation d'appel stratégique">
         <div>
-          <label for="order-EMAIL" class="form-label text-white">Adresse Email</label>
-          <input type="email" name="EMAIL" id="order-EMAIL" class="form-input" placeholder="Entrez votre email" required aria-required="true">
-        </div>
-        <div>
-          <label for="order-FNAME" class="form-label text-white">Prénom</label>
-          <input type="text" name="FNAME" id="order-FNAME" class="form-input" placeholder="Entrez votre prénom" required aria-required="true">
-        </div>
-        <div>
-          <label for="order-BUSINESS" class="form-label text-white">Nom de l’Entreprise</label>
-          <input type="text" name="BUSINESS" id="order-BUSINESS" class="form-input" placeholder="Entrez le nom de votre entreprise">
+          <label for="mce-EMAIL-ORDER" class="form-label text-white">Adresse Email</label>
+          <input type="email" name="EMAIL" id="mce-EMAIL-ORDER" class="form-input" placeholder="Entrez votre email" required aria-required="true">
         </div>
         <div style="position: absolute; left: -5000px;" aria-hidden="true">
           <input type="text" name="b_0961fb9de08745f91fd9bff05_d8baa7fd0e" tabindex="-1" value="">
         </div>
-        <!-- Tag for Call Booking -->
         <input type="hidden" name="tags" value="Call_Booking">
-        <button type="submit" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réservez mon appel">Réservez Mon Appel ➔</button>
+        <button type="submit" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réservez votre appel gratuit">Réservez Maintenant ➔</button>
       </form>
+      <p class="mt-4 text-sm">Nous respectons votre vie privée. Vos données sont sécurisées avec Mailchimp.</p>
     </div>
     <img src="copy-qc-logo.png" alt="Logo COPY QC - Symbole de Québec" class="watermark">
   </section>
@@ -419,107 +452,116 @@
   <div class="sticky-footer bg-blue-600 text-white py-4 text-center">
     <p class="text-lg mb-2">Envie de Plus de Clients au Québec ?!</p>
     <a href="#order" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg text-lg font-semibold pulse" aria-label="Réservez votre appel gratuit maintenant">Réservez Maintenant ➔</a>
+    <div class="social-links mt-4 flex justify-center gap-4">
+      <a href="https://www.instagram.com/savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur Instagram">
+        <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.342 3.608 1.317.975.975 1.255 2.242 1.317 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.342 2.633-1.317 3.608-.975.975-2.242 1.255-3.608 1.317-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.342-3.608-1.317-.975-.975-1.255-2.242-1.317-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.342-2.633 1.317-3.608.975-.975 2.242-1.255 3.608-1.317 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.654.075-3.122.566-4.305 1.749-1.183 1.183-1.674 2.651-1.749 4.305-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.075 1.654.566 3.122 1.749 4.305 1.183 1.183 2.651 1.674 4.305 1.749 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.654-.075 3.122-.566 4.305-1.749 1.183-1.183 1.674-2.651 1.749-4.305.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.075-1.654-.566-3.122-1.749-4.305-1.183-1.183-2.651-1.674-4.305-1.749-1.28-.058-1.688-.072-4.947-.072zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.324c-2.297 0-4.162-1.865-4.162-4.162s1.865-4.162 4.162-4.162 4.162 1.865 4.162 4.162-1.865 4.162-4.162 4.162zm4.406-11.512c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur LinkedIn">
+        <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.998 2h-15.996c-1.104 0-2 .896-2 2v15.998c0 1.104.896 2 2 2h15.996c1.104 0 2-.896 2-2v-15.998c0-1.104-.896-2-2-2zm-11.998 17.994h-3v-9.996h3v9.996zm-1.5-11.496c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.496h-3v-4.998c0-1.656-1.344-3-3-3s-3 1.344-3 3v4.998h-3v-9.996h3v1.498c.938-1.122 2.322-1.498 3.5-1.498 2.484 0 4.5 2.016 4.5 4.5v5.496z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur YouTube">
+        <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.582 6.186c-.252-.894-.702-1.608-1.35-2.142-.648-.534-1.422-.804-2.322-.804-2.232 0-5.604.006-9.3.006-3.696 0-7.068-.006-9.3-.006-.9 0-1.674.27-2.322.804-.648.534-1.098 1.248-1.35 2.142-.234.84-.354 2.022-.354 3.546v.522c0 1.524.12 2.706.354 3.546.252.894.702 1.608 1.35 2.142.648.534 1.422.804 2.322.804 2.232 0 5.604-.006 9.3-.006 3.696 0 7.068.006 9.3.006.9 0 1.674-.27 2.322-.804.648-.534 1.098-1.248 1.35-2.142.234-.84.354-2.022.354-3.546v-.522c0-1.524-.12-2.706-.354-3.546zm-11.582 6.814v-5l5 2.5-5 2.5z"/></svg>
+      </a>
+    </div>
   </div>
 
   <script>
-    function handleScrollAnimations() {
+    document.addEventListener('DOMContentLoaded', () => {
       const sections = document.querySelectorAll('.section-animate');
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (sectionTop < windowHeight * 0.8) {
-          section.classList.add('visible');
+      const stickyFooter = document.querySelector('.sticky-footer');
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+      const observerOptions = { threshold: 0.1 };
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+
+      window.addEventListener('scroll', () => {
+        const orderSection = document.getElementById('order');
+        const rect = orderSection.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+          stickyFooter.classList.remove('visible');
+          stickyFooter.classList.add('hidden');
+        } else {
+          stickyFooter.classList.remove('hidden');
+          stickyFooter.classList.add('visible');
         }
       });
-    }
 
-    function scrollToOrder() {
-      document.querySelector('#order').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function showQuizResult() {
-      const quizResult = document.getElementById('quiz-result');
-      quizResult.classList.remove('hidden');
-      document.getElementById('quiz-form').style.display = 'none';
-    }
-
-    document.getElementById('mc-embedded-subscribe-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      setTimeout(() => {
-        document.getElementById('opt-in-content').style.display = 'none';
-        document.getElementById('confirmation-message').classList.add('visible');
-        document.querySelector('#opt-in').scrollIntoView({ behavior: 'smooth' });
-      }, 500);
-    });
-
-    function abTestHeadline() {
-      const headline = document.getElementById('opt-in-headline');
-      const variant = Math.random() < 0.5 ? 'Audit Gratuit – Seulement 5 Places Restantes !' : 'Boostez Vos Abonnements Aujourd’hui !';
-      headline.textContent = variant;
-      localStorage.setItem('headlineVariant', variant);
-    }
-
-    window.addEventListener('message', function(event) {
-      if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
-        const returningVisitor = localStorage.getItem('returningVisitor');
-        const userName = event.data.data ? event.data.data.FNAME : null;
-        const heroCta = document.getElementById('hero-cta');
-        if (returningVisitor && userName) {
-          heroCta.textContent = `Bon Retour, ${userName} ! Audit Gratuit – Seulement 5 Places Restantes !`;
-        } else if (returningVisitor) {
-          heroCta.textContent = 'Bon Retour ! Audit Gratuit – Seulement 5 Places Restantes !';
-        }
-        localStorage.setItem('returningVisitor', 'true');
-      }
-    });
-
-    function handleStickyFooter() {
-      const stickyFooter = document.querySelector('.sticky-footer');
-      const optInSection = document.querySelector('#opt-in');
-      const orderSection = document.querySelector('#order');
-      const optInSectionBottom = optInSection.getBoundingClientRect().bottom;
-      const orderSectionTop = orderSection.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-
-      if (optInSectionBottom <= 0 && orderSectionTop > windowHeight * 0.1) {
-        stickyFooter.classList.remove('hidden');
-        stickyFooter.classList.add('visible');
-      } else if (orderSectionTop <= windowHeight * 0.1) {
-        stickyFooter.classList.remove('visible');
-        stickyFooter.classList.add('hidden');
-      } else {
-        stickyFooter.classList.remove('visible');
-      }
-    }
-
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    hamburger.addEventListener('click', () => {
-      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', !isExpanded);
-      mobileMenu.classList.toggle('active');
-    });
-
-    hamburger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
+      hamburger.addEventListener('click', () => {
         const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
         hamburger.setAttribute('aria-expanded', !isExpanded);
         mobileMenu.classList.toggle('active');
-      }
+        if (!isExpanded) {
+          mobileMenuLinks[0].focus();
+        } else {
+          hamburger.focus();
+        }
+      });
+
+      hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+          hamburger.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('active');
+          if (!isExpanded) {
+            mobileMenuLinks[0].focus();
+          } else {
+            hamburger.focus();
+          }
+        }
+      });
+
+      mobileMenu.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+          const firstLink = mobileMenuLinks[0];
+          const lastLink = mobileMenuLinks[mobileMenuLinks.length - 1];
+          if (e.shiftKey && document.activeElement === firstLink) {
+            e.preventDefault();
+            lastLink.focus();
+          } else if (!e.shiftKey && document.activeElement === lastLink) {
+            e.preventDefault();
+            firstLink.focus();
+          }
+        }
+      });
+
+      const form = document.getElementById('mc-embedded-subscribe-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const optInContent = document.getElementById('opt-in-content');
+        const confirmationMessage = document.getElementById('confirmation-message');
+        const formData = new FormData(form);
+        fetch(form.action, { method: 'POST', body: formData })
+          .then(() => {
+            optInContent.classList.add('hidden');
+            confirmationMessage.classList.add('visible');
+            setTimeout(() => scrollToOrder(), 1000);
+          })
+          .catch(error => console.error('Erreur lors de la soumission du formulaire:', error));
+      });
     });
 
-    window.onload = function () {
-      handleScrollAnimations();
-      handleStickyFooter();
-      abTestHeadline();
-    };
+    function showQuizResult() {
+      const result = document.getElementById('quiz-result');
+      result.classList.remove('hidden');
+      setTimeout(() => document.getElementById('mce-EMAIL').focus(), 500);
+    }
 
-    window.addEventListener('scroll', function() {
-      handleScrollAnimations();
-      handleStickyFooter();
-    });
+    function scrollToOrder() {
+      document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => document.getElementById('mce-EMAIL-ORDER').focus(), 1000);
+    }
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9345c9fd0adfdd1c',t:'MTc0NTMzMTkxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
