@@ -173,7 +173,84 @@
 
   <!-- Cookie Banner -->
   <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #2B6CB0; color: white; padding: 1rem; text-align: center; z-index: 20;">
-    <p>Nous utilisons des cookies pour analyser les performances de notre site. <a href="/privacy-policy" style="color: #F97316;">En savoir plus</a>.</p>
+    <p>Nous utilisons des cookies pour analyser les performances de notre site. <a href="https://funnel.savoirfreres.com/privacy-policy" style="color: #F97316;">En savoir plus</a>.</p>
+    <button onclick="acceptCookies()" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg">Accepter</button>
+  </div>
+  <script>
+    function acceptCookies() {
+      document.getElementById('cookie-banner').style.display = 'none';
+      localStorage.setItem('cookieConsent', 'accepted');
+    }
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  </script>
+
+  <section id="hero" class="hero-section section-animate">
+    <div class="container mx-auto px-4">
+      <div class="header-bar">
+        <div class="logo-container">
+          <a href="#hero" aria-label="Retour à la page d'accueil">
+            <img src="savoir-freres-logo.png" alt="Logo Savoir-Frères - Marketing Numérique">
+          </a>
+        </div>
+        <div class="hamburger" tabindex="0" aria-label="Ouvrir le menu" role="button" aria-expanded="false">☰</div>
+      </div>
+      <nav class="hero-nav" aria-label="Menu de navigation principal">
+        <a href="#opt-in" aria-label="Votre défi marketing">Votre Défi Marketing</a>
+        <a href="#ai-driven" aria-label="Solutions AI">Solutions AI</a>
+        <a href="#portfolio" aria-label="Nos réalisations">Nos Réalisations</a>
+        <a href="#testimonials" aria-label="Témoignages">Témoignages</a>
+        <a href="#faq" aria-label="FAQ">FAQ</a>
+      </nav>
+      <nav class="mobile-menu" aria-label="Menu de navigation mobilefaction-message h2 { font-size: 1.875rem; }
+      .confirmation-message p { font-size: 1.125rem; }
+      .landing-section h2 { font-size: 2.5rem; }
+      .landing-section p { font-size: 1.25rem; }
+      .carousel { max-width: 1000px; margin: 0 auto; }
+      .carousel img { height: 60px; margin-right: 2rem; }
+      .carousel img:hover { transform: scale(1.1); }
+      .principal-section h2 { font-size: 2.5rem; }
+      .principal-section p { font-size: 1.125rem; }
+      .principal-section img { height: 300px; }
+      .faq-section h2 { font-size: 2.5rem; }
+      .faq-section p { font-size: 1.125rem; }
+      .order-section h2 { font-size: 2.5rem; }
+      .order-section p { font-size: 1.25rem; }
+      .sticky-footer { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+      .sticky-footer p { font-size: 1.25rem; }
+      .sticky-footer .cta-button { font-size: 1.125rem; padding: 0.75rem 2rem; }
+      .sticky-footer .cta-button:hover { background-color: #FB923C; }
+    }
+    @media (max-width: 768px) {
+      .hero-section { height: 600px; padding-top: 4rem; padding-bottom: 2rem; overflow: hidden; }
+      .hero-section .container { display: flex; flex-direction: column; gap: 0.5rem; padding-top: 0; }
+      .header-bar { padding: 0 0.5rem; position: fixed; top: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.5); z-index: 20; }
+      .hero-section img { height: 40px; }
+      .hero-nav { display: none; }
+      .hamburger { display: block; font-size: 2rem; }
+      .hero-section h1 { font-size: 1.875rem; margin-bottom: 0.5rem; margin-top: 4rem; line-height: 2.25rem; }
+      .hero-section h2 { font-size: 1rem; margin-bottom: 0.5rem; line-height: 1.5rem; }
+      .hero-section iframe { width: 100%; height: 180px; margin-bottom: 0.5rem; }
+      .hero-section .cta-button { font-size: 0.875rem; padding: 0.5rem 1rem; max-width: 200px; margin: 0 auto; margin-bottom: 1rem; }
+      .form-input { padding: 0.5rem; font-size: 0.9rem; }
+      .confirmation-message { padding: 1.5rem; max-width: 100%; }
+      .cta-button { font-size: 1rem; padding: 0.75rem 1.5rem; }
+      .quiz-container label { font-size: 0.9rem; }
+      .quiz-container input[type="radio"] { width: 16px; height: 16px; }
+      .sticky-footer p { font-size: 0.875rem; margin-bottom: 0.5rem; }
+      .sticky-footer .cta-button { font-size: 0.875rem; padding: 0.5rem 1rem; }
+      .testimonial-block { padding: 0.75rem; }
+      .testimonial-block img { max-width: 150px; }
+    }
+  </style>
+</head>
+<body class="relative">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TJFHXDC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #2B6CB0; color: white; padding: 1rem; text-align: center; z-index: 20;">
+    <p>Nous utilisons des cookies pour analyser les performances de notre site. <a href="https://funnel.savoirfreres.com/privacy-policy" style="color: #F97316;">En savoir plus</a>.</p>
     <button onclick="acceptCookies()" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg">Accepter</button>
   </div>
   <script>
@@ -525,5 +602,4 @@
   </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9345c9fd0adfdd1c',t:'MTc0NTMzMTkxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
-</html>>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9345c9fd0adfdd1c',t:'MTc0NTMzMTkxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
