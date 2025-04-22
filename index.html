@@ -18,7 +18,10 @@
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
   </script>
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/YOUR_MAILCHIMP_USER_ID.js");</script>
+  <!-- Mailchimp Validation Script -->
+  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <!-- Mailchimp Tracking Script -->
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/0961fb9de08745f91fd9bff05/7f12d8239e35e81d7691e2342.js");</script>
   <script>
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -101,6 +104,8 @@
     .mobile-menu.active { display: block; }
     .mobile-menu a { display: block; color: #FFFFFF; font-size: 1.25rem; font-weight: 500; padding: 1rem; text-align: center; transition: color 0.3s ease; }
     .mobile-menu a:hover { color: #F97316; }
+    #cookie-banner { position: fixed; bottom: 0; width: 100%; background: #2B6CB0; color: white; padding: 1rem; text-align: center; z-index: 20; }
+    #cookie-banner a { color: #F97316; text-decoration: underline; }
     @media (min-width: 1024px) {
       .container { max-width: 1280px; padding-left: 2rem; padding-right: 2rem; }
       .hero-section { height: 800px; padding-top: 2rem; padding-bottom: 2rem; }
@@ -166,6 +171,21 @@
 <body class="relative">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5TJFHXDC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #2B6CB0; color: white; padding: 1rem; text-align: center; z-index: 20;">
+    <p>Nous utilisons des cookies pour analyser les performances de notre site. <a href="/privacy-policy" style="color: #F97316;">En savoir plus</a>.</p>
+    <button onclick="acceptCookies()" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg">Accepter</button>
+  </div>
+  <script>
+    function acceptCookies() {
+      document.getElementById('cookie-banner').style.display = 'none';
+      localStorage.setItem('cookieConsent', 'accepted');
+    }
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+  </script>
+
   <section id="hero" class="hero-section section-animate">
     <div class="container mx-auto px-4">
       <div class="header-bar">
@@ -221,13 +241,16 @@
             </label>
             <button type="button" onclick="showQuizResult()" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg">Obtenez votre solution – Seulement 5 places restantes ! ➔</button>
           </form>
-          <p id="quiz-result" class="mt-4 text-lg hidde n">Réclamez votre audit GRATUIT : <strong>"Triplez vos abonnements en 90 jours"</strong> pour résoudre ce problème maintenant !</p>
+          <p id="quiz-result" class="mt-4 text-lg hidden">Réclamez votre audit GRATUIT : <strong>"Triplez vos abonnements en 90 jours"</strong> pour résoudre ce problème maintenant !</p>
         </div>
-        <form action="//croissancesavoirfreres.us7.list-manage.com/subscribe/post?u=YOUR_MAILCHIMP_USER_ID&id=YOUR_FORM_ID" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire d'inscription au guide gratuit">
+        <form action="https://us1.list-manage.com/subscribe/post?u=0961fb9de08745f91fd9bff05&id=d8baa7fd0e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire d'inscription au guide gratuit">
           <h3 id="opt-in-headline" class="text-xl font-semibold text-[#F97316] mb-4">Audit Gratuit – Seulement 5 Places Restantes !</h3>
           <div>
             <label for="mce-EMAIL" class="form-label text-white">Adresse Email</label>
             <input type="email" name="EMAIL" id="mce-EMAIL" class="form-input" placeholder="Entrez votre email" required aria-required="true">
+          </div>
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_0961fb9de08745f91fd9bff05_d8baa7fd0e" tabindex="-1" value="">
           </div>
           <button type="submit" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réclamez votre audit gratuit">Réclamez Maintenant ➔</button>
         </form>
@@ -236,7 +259,7 @@
       <div id="confirmation-message" class="confirmation-message">
         <h2 class="text-2xl font-bold mb-4 text-[#F97316]">Merci de vous être inscrit !</h2>
         <p class="text-lg mb-4 text-gray-800">Votre audit GRATUIT <strong>"Triplez vos abonnements en 90 jours"</strong> est en route. Vérifiez votre boîte de réception (et les spams) !</p>
-        <p class="text-lg mb-6 text-gray-800">Réservez un <strong>appel stratégique GRATUIT</strong> (valeur de 200 $) pour booster votre croissance.</p>
+        <p class="text-lg mb-6 text-gray-800">Découvrez comment optimiser votre acquisition client avec des stratégies IA et des contenus impactants.</p>
         <button onclick="scrollToOrder()" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réservez mon appel">Réservez Maintenant ➔</button>
       </div>
     </div>
@@ -372,7 +395,7 @@
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt à Optimiser Votre Acquisition Client au Québec ?</h2>
       <p class="text-lg mb-8">Réservez votre appel stratégique GRATUIT de 30 minutes avec Savoir-Frères. Places limitées !</p>
-      <form action="//croissancesavoirfreres.us7.list-manage.com/subscribe/post?u=YOUR_MAILCHIMP_USER_ID&id=YOUR_FORM_ID" method="post" id="mc-order-form" name="mc-order-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire de réservation de consultation">
+      <form action="https://us1.list-manage.com/subscribe/post?u=0961fb9de08745f91fd9bff05&id=d8baa7fd0e" method="post" id="mc-order-form" name="mc-order-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire de réservation de consultation">
         <div>
           <label for="order-EMAIL" class="form-label text-white">Adresse Email</label>
           <input type="email" name="EMAIL" id="order-EMAIL" class="form-input" placeholder="Entrez votre email" required aria-required="true">
@@ -385,6 +408,11 @@
           <label for="order-BUSINESS" class="form-label text-white">Nom de l’Entreprise</label>
           <input type="text" name="BUSINESS" id="order-BUSINESS" class="form-input" placeholder="Entrez le nom de votre entreprise">
         </div>
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text" name="b_0961fb9de08745f91fd9bff05_d8baa7fd0e" tabindex="-1" value="">
+        </div>
+        <!-- Tag for Call Booking -->
+        <input type="hidden" name="tags" value="Call_Booking">
         <button type="submit" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réservez mon appel">Réservez Mon Appel ➔</button>
       </form>
     </div>
@@ -449,7 +477,6 @@
     });
 
     function handleStickyFooter() {
-      const sticky salle
       const stickyFooter = document.querySelector('.sticky-footer');
       const optInSection = document.querySelector('#opt-in');
       const orderSection = document.querySelector('#order');
@@ -496,5 +523,7 @@
       handleStickyFooter();
     });
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9345c9fd0adfdd1c',t:'MTc0NTMzMTkxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9345c9fd0adfdd1c',t:'MTc0NTMzMTkxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9345c9fd0adfdd1c',t:'MTc0NTMzMTkxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
