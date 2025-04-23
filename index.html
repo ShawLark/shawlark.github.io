@@ -66,7 +66,7 @@
     }
     .section-animate { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .section-animate.visible { opacity: 1; transform: translateY(0); }
-    .hero-section { background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(43, 108, 176, 0.4)); background-size: 200% 200%; animation: gradientShift 15s ease infinite; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
+    .hero-section { background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(43, 108, 176, 0.4)); background-size: 200% 200%; animation: gradientShift 15s ease infinite; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; z-index: 1; }
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -89,7 +89,7 @@
     .quiz-container input[type="radio"] { margin-right: 0.5rem; width: 20px; height: 20px; transition: transform 0.3s ease; }
     .testimonial-block { transition: all 0.3s ease; padding: 1rem; border-radius: 0.5rem; }
     .testimonial-block:hover { transform: scale(1.02); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); background: #F5F5F4; }
-    .header-bar { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    .header-bar { display: flex; justify-content: space-between; align-items: center; width: 100%; z-index: 20; }
     .logo-container { display: inline-block; }
     .hero-nav { display: flex; gap: 1.5rem; justify-content: center; }
     .hero-nav a { color: #FFFFFF; font-size: 1rem; font-weight: 500; transition: color 0.3s ease; }
@@ -104,7 +104,7 @@
       outline: 2px solid #F97316;
       outline-offset: 2px;
     }
-    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #000000; padding: 1rem; z-index: 10; }
+    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #000000; padding: 1rem; z-index: 30; }
     .mobile-menu.active { display: block; }
     .mobile-menu a { display: block; color: #FFFFFF; font-size: 1.25rem; font-weight: 500; padding: 1rem; text-align: center; transition: color 0.3s ease; }
     .mobile-menu a:hover { color: #F97316; }
@@ -122,6 +122,11 @@
     #cookie-banner a { color: #F97316; text-decoration: underline; }
     .certification-logo { transition: transform 0.3s ease; }
     .certification-logo:hover { transform: scale(1.1); }
+    .oasis-data-img { transition: transform 0.3s ease; width: 100%; max-width: 300px; }
+    .oasis-data-img:hover { transform: scale(1.05); }
+    .social-media-section { background: #2B6CB0; padding: 2rem 0; text-align: center; }
+    .social-links a { transition: transform 0.3s ease; }
+    .social-links a:hover { transform: scale(1.1); }
     @media (min-width: 1024px) {
       .container { max-width: 1280px; padding-left: 2rem; padding-right: 2rem; }
       .hero-section { height: 800px; padding-top: 2rem; padding-bottom: 2rem; }
@@ -160,6 +165,9 @@
       .sticky-footer p { font-size: 1.25rem; }
       .sticky-footer .cta-button { font-size: 1.125rem; padding: 0.75rem 2rem; }
       .sticky-footer .cta-button:hover { background-color: #FB923C; }
+      .oasis-data-container { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+      .social-links { gap: 2rem; }
+      .social-links a svg { width: 2rem; height: 2rem; }
     }
     @media (max-width: 768px) {
       .hero-section { height: 600px; padding-top: 4rem; padding-bottom: 2rem; overflow: hidden; }
@@ -181,6 +189,10 @@
       .sticky-footer .cta-button { font-size: 0.875rem; padding: 0.5rem 1rem; }
       .testimonial-block { padding: 0.75rem; }
       .testimonial-block img { max-width: 150px; }
+      .oasis-data-container { flex-direction: column; align-items: center; }
+      .oasis-data-img { max-width: 100%; }
+      .social-links { gap: 1rem; }
+      .social-links a svg { width: 1.5rem; height: 1.5rem; }
     }
   </style>
 </head>
@@ -262,10 +274,10 @@
             </label>
             <button type="button" onclick="showQuizResult()" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg">Obtenez votre solution – Seulement 5 places restantes ! ➔</button>
           </form>
-          <p id="quiz-result" class="mt-4 text-lg hidden">Réclamez votre audit GRATUIT : <strong>"Triplez vos abonnements en 90 jours"</strong> pour résoudre ce problème maintenant !</p>
+          <p id="quiz-result" class="mt-4 text-lg hidden">Découvrez si votre entreprise tombe dans ces pièges ! Réclamez votre audit GRATUIT : <strong>"Votre entreprise souffre-t-elle de ces 5 traps à leads ?"</strong> et trouvez des solutions dès aujourd’hui !</p>
         </div>
         <form action="https://us1.list-manage.com/subscribe/post?u=0961fb9de08745f91fd9bff05&id=d8baa7fd0e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire d'inscription au guide gratuit">
-          <h3 id="opt-in-headline" class="text-xl font-semibold text-[#F97316] mb-4">Audit Gratuit – Seulement 5 Places Restantes !</h3>
+          <h3 id="opt-in-headline" class="text-xl font-semibold text-[#F97316] mb-4">Audit Gratuit : Déjouez les 5 Pièges qui Sabotent vos Leads !</h3>
           <div>
             <label for="mce-EMAIL" class="form-label text-white">Adresse Email</label>
             <input type="email" name="EMAIL" id="mce-EMAIL" class="form-input" placeholder="Entrez votre email" required aria-required="true">
@@ -279,7 +291,7 @@
       </div>
       <div id="confirmation-message" class="confirmation-message">
         <h2 class="text-2xl font-bold mb-4 text-[#F97316]">Merci de vous être inscrit !</h2>
-        <p class="text-lg mb-4 text-gray-800">Votre audit GRATUIT <strong>"Triplez vos abonnements en 90 jours"</strong> est en route. Vérifiez votre boîte de réception (et les spams) !</p>
+        <p class="text-lg mb-4 text-gray-800">Votre audit GRATUIT <strong>"Votre entreprise souffre-t-elle de ces 5 traps à leads ?"</strong> est en route ! Vérifiez votre boîte de réception (et les spams) pour découvrir comment attirer plus de clients dès maintenant.</p>
         <p class="text-lg mb-6 text-gray-800">Découvrez comment optimiser votre acquisition client avec des stratégies IA et des contenus impactants.</p>
         <button onclick="scrollToOrder()" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réservez mon appel">Réservez Maintenant ➔</button>
       </div>
@@ -290,7 +302,7 @@
   <section id="landing" class="py-20 bg-white section-animate landing-section">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#F97316]">Vos Experts en Marketing Numérique pour PME Québécoises</h2>
-      <p class="text-lg mb-8">Deux frères passionnés qui aident les PME québécoises, physiques ou e-commerce, à créer des offres irrésistibles et à se connecter émotionnellement à leurs clients idéaux grâce à des stratégies marketing modernes et l’IA.</p>
+      <p class="text-lg mb-8">Savoir-Frères aide les PME québécoises, qu’elles offrent des produits ou services, physiques ou e-commerce, à concevoir une offre irrésistible axée sur le client. Nous investissons dans un contenu réel chargé en émotions pour connecter votre entreprise à ses clients idéaux, grâce à des stratégies marketing modernes, des idées innovantes et l’IA.</p>
       <div class="grid md:grid-cols-3 gap-12 mb-12">
         <div>
           <h3 class="text-xl font-semibold mb-2 text-blue-600">Offres Irrésistibles</h3>
@@ -361,6 +373,7 @@
       </div>
       <div id="portfolio" class="mb-12">
         <h3 class="text-xl font-semibold mb-4 text-blue-600 text-center">Nos Résultats</h3>
+        <p class="text-center mb-6">Que vous soyez une entreprise de services physiques, un prestataire de produits, ou une boutique e-commerce, nos campagnes sur mesure génèrent des résultats mesurables. Voici quelques exemples :</p>
         <div class="space-y-6">
           <div class="bg-gray-100 p-4 rounded-lg shadow">
             <img src="https://via.placeholder.com/300x200?text=Projet1" alt="Projet 1 - Campagne Marketing" class="w-full h-32 object-cover mb-4 rounded">
@@ -373,9 +386,20 @@
             <p>Augmentation des inscriptions de 30 % avec des Reels émotionnels.</p>
           </div>
           <div class="bg-gray-100 p-4 rounded-lg shadow">
-            <img src="oasis-campaign-proof.png" alt="Preuve de campagne Oasis - Coût par clic bas sur Meta" class="w-full h-32 object-cover mb-4 rounded">
+            <img src="oasis-logo.png" alt="Logo Oasis - Lavage Auto à Domicile" class="w-32 h-12 object-contain mb-4 mx-auto">
             <h4 class="text-lg font-semibold mb-2">Campagne Oasis – Lavage Auto à Domicile</h4>
             <p>Atteint 786 visites uniques et 3,100 vues de page avec un CPC bas sur Meta, augmentant les conversions de 40 %.</p>
+            <img src="oasis-campaign-proof.png" alt="Preuve de campagne Oasis - Coût par clic bas sur Meta" class="w-full h-32 object-cover mb-4 rounded">
+            <div class="oasis-data-container">
+              <div>
+                <img src="data-oasis.png" alt="Données de performance 1 - Campagne Oasis" class="oasis-data-img mb-2 rounded">
+                <p class="text-sm text-gray-600">CPC optimisé et portée ciblée au Québec</p>
+              </div>
+              <div>
+                <img src="oasis-data-2.png" alt="Données de performance 2 - Campagne Oasis" class="oasis-data-img mb-2 rounded">
+                <p class="text-sm text-gray-600">Engagement élevé avec 4,21 pages par visite</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="mt-12">
@@ -407,7 +431,7 @@
       <div class="space-y-8 max-w-3xl mx-auto">
         <div>
           <h3 class="text-xl font-semibold mb-2 text-blue-600">Quels types d’entreprises québécoises aidez-vous ?</h3>
-          <p>Nous nous spécialisons dans les PME de services par abonnement, comme les plateformes de coaching, les services de consultation et les entreprises technologiques.</p>
+          <p>Nous aidons une vaste gamme de PME québécoises, qu’il s’agisse de services physiques comme le nettoyage auto (ex. Oasis), de produits et services e-commerce, ou encore d’entreprises locales comme des entrepreneurs généraux (ex. Désilets-Larkin) et des centres de bien-être (ex. Équilibre Vital). Notre expertise s’étend à tous les secteurs où une connexion émotionnelle avec les clients est clé.</p>
         </div>
         <div>
           <h3 class="text-xl font-semibold mb-2 text-blue-600">À quelle vitesse puis-je voir des résultats ?</h3>
@@ -449,20 +473,26 @@
     <img src="copy-qc-logo.png" alt="Logo COPY QC - Symbole de Québec" class="watermark">
   </section>
 
+  <section id="social-media" class="social-media-section">
+    <div class="container mx-auto px-4">
+      <h3 class="text-xl font-semibold mb-4 text-white">Suivez-Nous</h3>
+      <div class="social-links flex justify-center gap-4">
+        <a href="https://www.instagram.com/savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur Instagram">
+          <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.342 3.608 1.317.975.975 1.255 2.242 1.317 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.342 2.633-1.317 3.608-.975.975-2.242 1.255-3.608 1.317-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.342-3.608-1.317-.975-.975-1.255-2.242-1.317-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.342-2.633 1.317-3.608.975-.975 2.242-1.255 3.608-1.317 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.654.075-3.122.566-4.305 1.749-1.183 1.183-1.674 2.651-1.749 4.305-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.075 1.654.566 3.122 1.749 4.305 1.183 1.183 2.651 1.674 4.305 1.749 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.654-.075 3.122-.566 4.305-1.749 1.183-1.183 1.674-2.651 1.749-4.305.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.075-1.654-.566-3.122-1.749-4.305-1.183-1.183-2.651-1.674-4.305-1.749-1.28-.058-1.688-.072-4.947-.072zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.324c-2.297 0-4.162-1.865-4.162-4.162s1.865-4.162 4.162-4.162 4.162 1.865 4.162 4.162-1.865 4.162-4.162 4.162zm4.406-11.512c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur LinkedIn">
+          <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.998 2h-15.996c-1.104 0-2 .896-2 2v15.998c0 1.104.896 2 2 2h15.996c1.104 0 2-.896 2-2v-15.998c0-1.104-.896-2-2-2zm-11.998 17.994h-3v-9.996h3v9.996zm-1.5-11.496c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.496h-3v-4.998c0-1.656-1.344-3-3-3s-3 1.344-3 3v4.998h-3v-9.996h3v1.498c.938-1.122 2.322-1.498 3.5-1.498 2.484 0 4.5 2.016 4.5 4.5v5.496z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur YouTube">
+          <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.582 6.186c-.252-.894-.702-1.608-1.35-2.142-.648-.534-1.422-.804-2.322-.804-2.232 0-5.604.006-9.3.006-3.696 0-7.068-.006-9.3-.006-.9 0-1.674.27-2.322.804-.648.534-1.098 1.248-1.35 2.142-.234.84-.354 2.022-.354 3.546v.522c0 1.524.12 2.706.354 3.546.252.894.702 1.608 1.35 2.142.648.534 1.422.804 2.322.804 2.232 0 5.604-.006 9.3-.006 3.696 0 7.068.006 9.3.006.9 0 1.674-.27 2.322-.804.648-.534 1.098-1.248 1.35-2.142.234-.84.354-2.022.354-3.546v-.522c0-1.524-.12-2.706-.354-3.546zm-11.582 6.814v-5l5 2.5-5 2.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <div class="sticky-footer bg-blue-600 text-white py-4 text-center">
     <p class="text-lg mb-2">Envie de Plus de Clients au Québec ?!</p>
     <a href="#order" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg text-lg font-semibold pulse" aria-label="Réservez votre appel gratuit maintenant">Réservez Maintenant ➔</a>
-    <div class="social-links mt-4 flex justify-center gap-4">
-      <a href="https://www.instagram.com/savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur Instagram">
-        <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.342 3.608 1.317.975.975 1.255 2.242 1.317 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.342 2.633-1.317 3.608-.975.975-2.242 1.255-3.608 1.317-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.342-3.608-1.317-.975-.975-1.255-2.242-1.317-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.342-2.633 1.317-3.608.975-.975 2.242-1.255 3.608-1.317 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.654.075-3.122.566-4.305 1.749-1.183 1.183-1.674 2.651-1.749 4.305-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.075 1.654.566 3.122 1.749 4.305 1.183 1.183 2.651 1.674 4.305 1.749 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.654-.075 3.122-.566 4.305-1.749 1.183-1.183 1.674-2.651 1.749-4.305.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.075-1.654-.566-3.122-1.749-4.305-1.183-1.183-2.651-1.674-4.305-1.749-1.28-.058-1.688-.072-4.947-.072zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.324c-2.297 0-4.162-1.865-4.162-4.162s1.865-4.162 4.162-4.162 4.162 1.865 4.162 4.162-1.865 4.162-4.162 4.162zm4.406-11.512c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/></svg>
-      </a>
-      <a href="https://www.linkedin.com/company/savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur LinkedIn">
-        <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.998 2h-15.996c-1.104 0-2 .896-2 2v15.998c0 1.104.896 2 2 2h15.996c1.104 0 2-.896 2-2v-15.998c0-1.104-.896-2-2-2zm-11.998 17.994h-3v-9.996h3v9.996zm-1.5-11.496c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.496h-3v-4.998c0-1.656-1.344-3-3-3s-3 1.344-3 3v4.998h-3v-9.996h3v1.498c.938-1.122 2.322-1.498 3.5-1.498 2.484 0 4.5 2.016 4.5 4.5v5.496z"/></svg>
-      </a>
-      <a href="https://www.youtube.com/@savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur YouTube">
-        <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.582 6.186c-.252-.894-.702-1.608-1.35-2.142-.648-.534-1.422-.804-2.322-.804-2.232 0-5.604.006-9.3.006-3.696 0-7.068-.006-9.3-.006-.9 0-1.674.27-2.322.804-.648.534-1.098 1.248-1.35 2.142-.234.84-.354 2.022-.354 3.546v.522c0 1.524.12 2.706.354 3.546.252.894.702 1.608 1.35 2.142.648.534 1.422.804 2.322.804 2.232 0 5.604-.006 9.3-.006 3.696 0 7.068.006 9.3.006.9 0 1.674-.27 2.322-.804.648-.534 1.098-1.248 1.35-2.142.234-.84.354-2.022.354-3.546v-.522c0-1.524-.12-2.706-.354-3.546zm-11.582 6.814v-5l5 2.5-5 2.5z"/></svg>
-      </a>
-    </div>
   </div>
 
   <script>
@@ -485,21 +515,28 @@
 
       sections.forEach(section => observer.observe(section));
 
-      window.addEventListener('scroll', () => {
-        const orderSection = document.getElementById('order');
-        const rect = orderSection.getBoundingClientRect();
-        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-          stickyFooter.classList.remove('visible');
-          stickyFooter.classList.add('hidden');
-        } else {
-          stickyFooter.classList.remove('hidden');
-          stickyFooter.classList.add('visible');
-        }
-      });
+      const optInSection = document.getElementById('opt-in');
+      const socialMediaSection = document.getElementById('social-media');
+
+      const stickyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.target.id === 'opt-in' && entry.isIntersecting) {
+            stickyFooter.classList.remove('hidden');
+            stickyFooter.classList.add('visible');
+          }
+          if (entry.target.id === 'social-media' && entry.isIntersecting) {
+            stickyFooter.classList.remove('visible');
+            stickyFooter.classList.add('hidden');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      stickyObserver.observe(optInSection);
+      stickyObserver.observe(socialMediaSection);
 
       hamburger.addEventListener('click', () => {
         const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-        hamburger.setAttribute('aria-expanded', !isExpanded);
+        burger.setAttribute('aria-expanded', !isExpanded);
         mobileMenu.classList.toggle('active');
         if (!isExpanded) {
           mobileMenuLinks[0].focus();
