@@ -145,7 +145,9 @@
       .quiz-container label { font-size: 1.125rem; }
       .quiz-container label:hover { color: #F97316; }
       .quiz-container input[type="radio"]:hover { transform: scale(1.1); }
-      .form-input { padding: 1rem; font-size: 1.125rem; }
+      .form-input { padding: 1rem; font
+
+-size: 1.125rem; }
       .confirmation-message { max-width: 600px; padding: 3rem; }
       .confirmation-message h2 { font-size: 1.875rem; }
       .confirmation-message p { font-size: 1.125rem; }
@@ -291,7 +293,7 @@
       </div>
       <div id="confirmation-message" class="confirmation-message">
         <h2 class="text-2xl font-bold mb-4 text-[#F97316]">Merci de vous être inscrit !</h2>
-        <p class="text-lg mb-4 text-gray-800">Votre audit GRATUIT <strong>"Votre entreprise souffre-t-elle de ces 5 traps à leads ?"</strong> est en route ! Vérifiez votre boîte de réception (et les spams) pour découvrir comment attirer plus de clients dès maintenant.</p>
+        <p class="text-lg mb-4 text-gray-800">Votre audit GRATUIT <strong>"Votre entreprise souffre-t-elle de ces 5 traps à leads ?"</strong> est en route ! Vérifiez votre boîte de réception (et les spams) for découvrir comment attirer plus de clients dès maintenant.</p>
         <p class="text-lg mb-6 text-gray-800">Découvrez comment optimiser votre acquisition client avec des stratégies IA et des contenus impactants.</p>
         <button onclick="scrollToOrder()" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réservez mon appel">Réservez Maintenant ➔</button>
       </div>
@@ -536,7 +538,7 @@
 
       hamburger.addEventListener('click', () => {
         const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-        burger.setAttribute('aria-expanded', !isExpanded);
+        hamburger.setAttribute('aria-expanded', !isExpanded);
         mobileMenu.classList.toggle('active');
         if (!isExpanded) {
           mobileMenuLinks[0].focus();
