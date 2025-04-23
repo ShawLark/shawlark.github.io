@@ -89,7 +89,7 @@
     .quiz-container input[type="radio"] { margin-right: 0.5rem; width: 20px; height: 20px; transition: transform 0.3s ease; }
     .testimonial-block { transition: all 0.3s ease; padding: 1rem; border-radius: 0.5rem; }
     .testimonial-block:hover { transform: scale(1.02); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); background: #F5F5F4; }
-    .header-bar { display: flex; justify-content: space-between; align-items: center; width: 100%; z-index: 20; }
+    .header-bar { display: flex; justify-content: space-between; align-items: center; width: 100%; z-index: 20; background: #1A202C; padding: 0.5rem 1rem; }
     .logo-container { display: inline-block; }
     .hero-nav { display: flex; gap: 1.5rem; justify-content: center; }
     .hero-nav a { color: #FFFFFF; font-size: 1rem; font-weight: 500; transition: color 0.3s ease; }
@@ -99,14 +99,14 @@
       outline: 2px solid #F97316;
       outline-offset: 2px;
     }
-    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: #FFFFFF; padding: 0.5rem; background-color: rgba(255, 255, 255, 0.2); border-radius: 0.25rem; }
+    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: #FFFFFF; padding: 0.5rem; background: transparent; border: none; }
     .hamburger:focus {
       outline: 2px solid #F97316;
       outline-offset: 2px;
     }
-    .mobile-menu { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #000000; padding: 1rem; z-index: 30; }
+    .mobile-menu { display: none; position: fixed; top: 60px; left: 0; width: 100%; background: #1A202C; padding: 1rem; z-index: 30; }
     .mobile-menu.active { display: block; }
-    .mobile-menu a { display: block; color: #FFFFFF; font-size: 1.25rem; font-weight: 500; padding: 1rem; text-align: center; transition: color 0.3s ease; }
+    .mobile-menu a { display: block; color: #FFFFFF; font-size: 1.25rem; font-weight: 500; padding: 0.75rem; text-align: center; transition: color 0.3s ease; }
     .mobile-menu a:hover { color: #F97316; }
     .sr-only {
       position: absolute;
@@ -131,7 +131,7 @@
       .container { max-width: 1280px; padding-left: 2rem; padding-right: 2rem; }
       .hero-section { height: 800px; padding-top: 2rem; padding-bottom: 2rem; }
       .hero-section .container { position: relative; display: flex; flex-direction: column; gap: 1rem; }
-      .header-bar { padding: 0 1rem; }
+      .header-bar { padding: 0.5rem 1rem; }
       .hero-section img { height: 56px; }
       .hero-nav { margin-top: 2rem; }
       .hero-nav a { font-size: 1.125rem; }
@@ -145,9 +145,7 @@
       .quiz-container label { font-size: 1.125rem; }
       .quiz-container label:hover { color: #F97316; }
       .quiz-container input[type="radio"]:hover { transform: scale(1.1); }
-      .form-input { padding: 1rem; font
-
--size: 1.125rem; }
+      .form-input { padding: 1rem; font-size: 1.125rem; }
       .confirmation-message { max-width: 600px; padding: 3rem; }
       .confirmation-message h2 { font-size: 1.875rem; }
       .confirmation-message p { font-size: 1.125rem; }
@@ -172,12 +170,12 @@
       .social-links a svg { width: 2rem; height: 2rem; }
     }
     @media (max-width: 768px) {
-      .hero-section { height: 600px; padding-top: 4rem; padding-bottom: 2rem; overflow: hidden; }
+      .hero-section { height: 600px; padding-top: 5rem; padding-bottom: 2rem; overflow: hidden; }
       .hero-section .container { display: flex; flex-direction: column; gap: 0.5rem; padding-top: 0; }
-      .header-bar { padding: 0 0.5rem; position: fixed; top: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.5); z-index: 20; }
+      .header-bar { position: fixed; top: 0; left: 0; width: 100%; z-index: 40; }
       .hero-section img { height: 40px; }
       .hero-nav { display: none; }
-      .hamburger { display: block; font-size: 2rem; }
+      .hamburger { display: block; font-size: 1.5rem; }
       .hero-section h1 { font-size: 1.875rem; margin-bottom: 0.5rem; margin-top: 4rem; line-height: 2.25rem; }
       .hero-section h2 { font-size: 1rem; margin-bottom: 0.5rem; line-height: 1.5rem; }
       .hero-section iframe { width: 100%; height: 180px; margin-bottom: 0.5rem; }
@@ -293,7 +291,7 @@
       </div>
       <div id="confirmation-message" class="confirmation-message">
         <h2 class="text-2xl font-bold mb-4 text-[#F97316]">Merci de vous être inscrit !</h2>
-        <p class="text-lg mb-4 text-gray-800">Votre audit GRATUIT <strong>"Votre entreprise souffre-t-elle de ces 5 traps à leads ?"</strong> est en route ! Vérifiez votre boîte de réception (et les spams) for découvrir comment attirer plus de clients dès maintenant.</p>
+        <p class="text-lg mb-4 text-gray-800">Votre audit GRATUIT <strong>"Votre entreprise souffre-t-elle de ces 5 traps à leads ?"</strong> est en route ! Vérifiez votre boîte de réception (et les spams) pour découvrir comment attirer plus de clients dès maintenant.</p>
         <p class="text-lg mb-6 text-gray-800">Découvrez comment optimiser votre acquisition client avec des stratégies IA et des contenus impactants.</p>
         <button onclick="scrollToOrder()" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réservez mon appel">Réservez Maintenant ➔</button>
       </div>
@@ -378,28 +376,25 @@
         <p class="text-center mb-6">Que vous soyez une entreprise de services physiques, un prestataire de produits, ou une boutique e-commerce, nos campagnes sur mesure génèrent des résultats mesurables. Voici quelques exemples :</p>
         <div class="space-y-6">
           <div class="bg-gray-100 p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/300x200?text=Projet1" alt="Projet 1 - Campagne Marketing" class="w-full h-32 object-cover mb-4 rounded">
-            <h4 class="text-lg font-semibold mb-2">Campagne pour Service d’Abonnement</h4>
-            <p>Augmentation des abonnements de 50 % en 3 mois avec des campagnes Meta ciblées.</p>
+            <img src="desilets-larkin-screenshot.png" alt="Capture d'écran du site Désilets-Larkin - Construction sur mesure" class="w-full h-32 object-cover mb-4 rounded">
+            <h4 class="text-lg font-semibold mb-2">Construction Sur Mesure avec Désilets-Larkin</h4>
+            <p>Triplement des abonnements en 3 mois grâce à une campagne Meta ciblée et émotionnelle, axée sur des contenus qui inspirent confiance et aspiration.</p>
           </div>
           <div class="bg-gray-100 p-4 rounded-lg shadow">
-            <img src="https://via.placeholder.com/300x200?text=Projet2" alt="Projet 2 - Campagne Marketing" class="w-full h-32 object-cover mb-4 rounded">
-            <h4 class="text-lg font-semibold mb-2">Plateforme de Coaching</h4>
-            <p>Augmentation des inscriptions de 30 % avec des Reels émotionnels.</p>
-          </div>
-          <div class="bg-gray-100 p-4 rounded-lg shadow">
-            <img src="oasis-logo.png" alt="Logo Oasis - Lavage Auto à Domicile" class="w-32 h-12 object-contain mb-4 mx-auto">
             <h4 class="text-lg font-semibold mb-2">Campagne Oasis – Lavage Auto à Domicile</h4>
-            <p>Atteint 786 visites uniques et 3,100 vues de page avec un CPC bas sur Meta, augmentant les conversions de 40 %.</p>
-            <img src="oasis-campaign-proof.png" alt="Preuve de campagne Oasis - Coût par clic bas sur Meta" class="w-full h-32 object-cover mb-4 rounded">
+            <p>Optimisation des performances Meta avec un CPC réduit et une portée ciblée au Québec, générant 786 visites uniques et 3,100 vues de page.</p>
             <div class="oasis-data-container">
               <div>
+                <img src="oasis-campaign-proof.png" alt="Preuve de campagne Oasis - Coût par clic bas sur Meta" class="oasis-data-img mb-2 rounded">
+                <p class="text-sm text-gray-600">CPC optimisé à $0,07 – $0,17 par clic, maximisant le retour sur investissement.</p>
+              </div>
+              <div>
                 <img src="data-oasis.png" alt="Données de performance 1 - Campagne Oasis" class="oasis-data-img mb-2 rounded">
-                <p class="text-sm text-gray-600">CPC optimisé et portée ciblée au Québec</p>
+                <p class="text-sm text-gray-600">Portée ciblée au Québec avec un CPM moyen de $4,20 – $8,04.</p>
               </div>
               <div>
                 <img src="oasis-data-2.png" alt="Données de performance 2 - Campagne Oasis" class="oasis-data-img mb-2 rounded">
-                <p class="text-sm text-gray-600">Engagement élevé avec 4,21 pages par visite</p>
+                <p class="text-sm text-gray-600">Engagement élevé : 4,21 pages par visite, augmentant les conversions de 40 %.</p>
               </div>
             </div>
           </div>
@@ -415,9 +410,6 @@
         <div class="testimonial-block mx-auto max-w-lg">
           <img src="desilets-larkin-logo.png" alt="Désilets Larkin Logo" class="h-12 mx-auto mb-4">
           <p class="italic mb-4">"Savoir-Frères a triplé nos abonnements en 3 mois – une croissance incroyable !" - <a href="https://constructiondesiletslarkin.ca" target="_blank" class="text-blue-600 hover:underline">Construction Désilets-Larkin Inc.</a></p>
-        </div>
-        <div class="testimonial-block mx-auto max-w-lg">
-          <p class="italic mb-4">"Leurs campagnes Meta ont transformé notre acquisition client !" - Coaching Étoile</p>
         </div>
         <a href="#order" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg text-base font-semibold inline-block mt-4" aria-label="Découvrez comment nous pouvons vous aider">Découvrez Comment Nous Pouvons Vous Aider ➔</a>
       </div>
