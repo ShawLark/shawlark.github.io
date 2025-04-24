@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Transformez votre PME québécoise avec Savoir-Frères. Maximisez vos conversions grâce à des stratégies d’IA avancées et des solutions percutantes. Réservez votre audit gratuit dès maintenant.">
-  <meta name="keywords" content="marketing numérique Québec, stratégies IA, PME québécoise, audit gratuit, Savoir-Frères">
+  <meta name="description" content="Boostez votre PME québécoise avec Savoir-Frères. Attirez vos clients idéaux avec des offres irrésistibles et des stratégies IA avancées. Audit gratuit – places limitées !">
+  <meta name="keywords" content="marketing Québec, marketing numérique, PME, Savoir-Frères, stratégies IA, audit gratuit">
   <meta name="author" content="Savoir-Frères">
-  <title>Savoir-Frères | Experts en Marketing Numérique pour PME Québécoises</title>
+  <title>Savoir-Frères - Experts en Marketing Numérique pour PME Québécoises</title>
   <link rel="preload" href="https://www.youtube.com/embed/c21fxJilfKM?autoplay=1&mute=1&loop=1&playlist=c21fxJilfKM" as="iframe">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
@@ -43,15 +44,22 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; background-color: #F9FAFB; }
     h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
-    .cta-button { transition: background-color 0.3s ease, transform 0.3s ease; min-height: 48px; min-width: 120px; }
+    .cta-button { transition: all 0.3s ease; min-height: 48px; min-width: 120px; }
     .cta-button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
     .cta-button:focus { outline: 2px solid #F97316; outline-offset: 2px; }
+    .cta-button.pulse { animation: pulse 2s infinite; }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
     .form-label { margin-bottom: 0.5rem; font-weight: 500; }
     .form-input { background-color: #FFFFFF; color: #1F2937; border: 1px solid #D1D5DB; border-radius: 0.5rem; padding: 0.75rem; width: 100%; font-size: 1rem; }
     .form-input::placeholder { color: #6B7280; }
     .form-input:focus { border-color: #F97316; box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1); }
     .watermark { opacity: 0.2; position: absolute; bottom: 20px; right: 20px; width: 80px; }
-    .sticky-footer { position: fixed; bottom: 0; width: 100%; z-index: 20; background: #1E3A8A; transition: opacity 0.3s ease; }
+    .sticky-footer { position: fixed; bottom: 0; width: 100%; z-index: 20; background: #1E3A8A; transition: opacity 0.3s ease; display: none; }
+    .sticky-footer.visible { display: block; }
     .sticky-footer.hidden { opacity: 0; visibility: hidden; }
     .section-animate { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .section-animate.visible { opacity: 1; transform: translateY(0); }
@@ -179,10 +187,10 @@
         <a href="#faq">FAQ</a>
       </nav>
       <div class="flex flex-col items-center text-center mt-12">
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 text-shadow">Attirez Vos Clients Idéaux avec des Stratégies IA Innovantes</h1>
-        <h2 class="text-lg md:text-xl text-white mb-6 text-shadow">Nous avons triplé les conversions d’une PME en 90 jours grâce à l’IA et des contenus percutants. Votre succès commence ici.</h2>
+        <h1 id="dynamic-headline" class="text-4xl md:text-6xl font-bold text-white mb-4 text-shadow">Chargement...</h1>
+        <h2 class="text-lg md:text-xl text-white mb-6 text-shadow">Nous avons triplé les conversions d’une PME en 90 jours grâce à l’IA et des contenus percutants. Votre succès commence ici !</h2>
         <iframe class="mx-auto mb-6 rounded-lg shadow-lg" width="100%" src="https://www.youtube.com/embed/c21fxJilfKM?autoplay=1&mute=1&loop=1&playlist=c21fxJilfKM" title="Histoire de succès Savoir-Frères" frameborder="0" allow="autoplay; muted" allowfullscreen loading="lazy"></iframe>
-        <a href="#opt-in" id="hero-cta" class="cta-button bg-[#F97316] text-white py-3 px-8 rounded-lg text-lg font-semibold" aria-label="Réserver votre audit gratuit">Réserver Votre Audit Gratuit</a>
+        <a href="#opt-in" id="hero-cta" class="cta-button bg-[#F97316] text-white py-3 px-8 rounded-lg text-lg font-semibold pulse" aria-label="Réserver votre audit gratuit">Audit Gratuit – Places Limitées !</a>
       </div>
     </div>
     <div class="scroll-down">↓</div>
@@ -209,7 +217,7 @@
             </label>
             <button type="button" onclick="showQuizResult()" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg">Découvrir Votre Solution</button>
           </form>
-          <p id="quiz-result" class="mt-4 text-lg hidden">Identifiez les obstacles qui freinent votre croissance. Réservez votre audit gratuit : <strong>"5 pièges à éviter pour booster vos leads"</strong>.</p>
+          <p id="quiz-result" class="mt-4 text-lg hidden">Découvrez si votre entreprise tombe dans ces pièges ! Réservez votre audit gratuit : <strong>"5 pièges à éviter pour booster vos leads"</strong>.</p>
         </div>
         <form action="https://us1.list-manage.com/subscribe/post?u=0961fb9de08745f91fd9bff05&id=d8baa7fd0e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="max-w-md mx-auto flex flex-col gap-4" role="form" aria-label="Formulaire d'inscription à l'audit gratuit">
           <h3 id="opt-in-headline" class="text-xl font-semibold text-[#F97316] mb-4">Audit Gratuit : Déjouez les 5 Pièges qui Freinent Vos Leads</h3>
@@ -220,7 +228,7 @@
           <div style="position: absolute; left: -5000px;" aria-hidden="true">
             <input type="text" name="b_0961fb9de08745f91fd9bff05_d8baa7fd0e" tabindex="-1" value="">
           </div>
-          <button type="submit" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold" aria-label="Réserver votre audit gratuit">Réserver Maintenant</button>
+          <button type="submit" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réserver votre audit gratuit">Réserver Maintenant</button>
         </form>
         <p class="mt-4 text-sm">Vos données sont sécurisées avec Mailchimp. Confidentialité garantie.</p>
       </div>
@@ -228,7 +236,7 @@
         <h2 class="text-2xl font-bold mb-4 text-[#F97316]">Merci pour votre inscription !</h2>
         <p class="text-lg mb-4 text-gray-800">Votre audit gratuit <strong>"5 pièges à éviter pour booster vos leads"</strong> arrive bientôt. Consultez votre boîte de réception (et les spams).</p>
         <p class="text-lg mb-6 text-gray-800">Prêt à accélérer votre croissance ? Réservez un appel stratégique dès maintenant.</p>
-        <button onclick="scrollToOrder()" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold" aria-label="Réserver un appel stratégique">Réserver un Appel</button>
+        <button onclick="scrollToOrder()" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réserver un appel stratégique">Réserver un Appel</button>
       </div>
     </div>
     <picture>
@@ -240,19 +248,19 @@
   <section id="landing" class="py-20 bg-white section-animate landing-section">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#F97316]">Votre Partenaire en Marketing Numérique pour PME Québécoises</h2>
-      <p class="text-lg mb-8 max-w-3xl mx-auto">Savoir-Frères accompagne les PME québécoises, qu’il s’agisse de services, de produits ou d’e-commerce, pour créer des solutions percutantes et connecter avec leurs clients grâce à l’IA et des contenus stratégiques.</p>
+      <p class="text-lg mb-8 max-w-3xl mx-auto">Savoir-Frères aide les PME québécoises, qu’il s’agisse de services, produits, ou e-commerce, à créer des offres irrésistibles et à connecter avec leurs clients grâce à l’IA et des contenus émotionnels.</p>
       <div class="grid md:grid-cols-3 gap-12 mb-12">
         <div>
-          <h3 class="text-xl font-semibold mb-2 text-blue-600">Solutions Percutantes</h3>
-          <p>Stratégies personnalisées pour transformer vos prospects en clients fidèles.</p>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Offres Irrésistibles</h3>
+          <p>Stratégies sur mesure pour transformer vos prospects en clients fidèles.</p>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-2 text-blue-600">Contenus Stratégiques</h3>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Contenus Émotionnels</h3>
           <p>Vidéos, bannières et publications captivantes pour engager votre audience.</p>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-2 text-blue-600">Résultats Concrets</h3>
-          <p>Campagnes optimisées par l’IA pour une croissance mesurable.</p>
+          <h3 class="text-xl font-semibold mb-2 text-blue-600">Résultats Mesurables</h3>
+          <p>Campagnes optimisées par l’IA pour une croissance exponentielle.</p>
         </div>
       </div>
       <div id="ai-driven" class="bg-gray-100 p-8 rounded-lg shadow-lg mb-12 relative">
@@ -263,13 +271,13 @@
         <div class="relative z-10">
           <h3 class="text-2xl font-bold mb-4 text-blue-600">Marketing Propulsé par l’IA</h3>
           <p class="text-lg mb-4">En 2025, l’IA redéfinit le marketing. Nous optimisons vos campagnes avec des analyses prédictives et des contenus ciblés pour maximiser votre impact.</p>
-          <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold" aria-label="Découvrir les solutions IA">Découvrir Nos Solutions</a>
+          <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Découvrir les solutions IA">Découvrir Nos Solutions</a>
         </div>
       </div>
       <div class="bg-blue-600 text-white p-8 rounded-lg shadow-lg mb-12">
         <h3 class="text-2xl font-bold mb-4">Accélérez Votre Croissance</h3>
         <p class="text-lg mb-4">Réservez un appel stratégique gratuit (valeur de 198 $) et obtenez des résultats concrets en 90 jours.</p>
-        <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold" aria-label="Réserver un appel stratégique">Réserver Votre Appel</a>
+        <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réserver un appel stratégique">Réserver Votre Appel</a>
       </div>
     </div>
   </section>
@@ -358,7 +366,7 @@
           </picture>
           <p class="italic mb-4">"Savoir-Frères a triplé nos abonnements en 90 jours – des résultats exceptionnels !" - <a href="https://constructiondesiletslarkin.ca" target="_blank" class="text-blue-600 hover:underline">Construction Désilets-Larkin</a></p>
         </div>
-        <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold mt-4" aria-label="Découvrir nos solutions">Découvrir Nos Solutions</a>
+        <a href="#order" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Découvrir nos solutions">Découvrir Nos Solutions</a>
       </div>
     </div>
   </section>
@@ -404,7 +412,7 @@
           <input type="text" name="b_0961fb9de08745f91fd9bff05_d8baa7fd0e" tabindex="-1" value="">
         </div>
         <input type="hidden" name="tags" value="Call_Booking">
-        <button type="submit" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold" aria-label="Réserver votre appel stratégique">Réserver Maintenant</button>
+        <button type="submit" class="cta-button bg-[#F97316] text-white py-3 px-6 rounded-lg text-lg font-semibold pulse" aria-label="Réserver votre appel stratégique">Réserver Maintenant</button>
       </form>
       <p class="mt-4 text-sm">Confidentialité garantie. Vos données sont sécurisées avec Mailchimp.</p>
     </div>
@@ -422,7 +430,7 @@
           <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.342 3.608 1.317.975.975 1.255 2.242 1.317 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.342 2.633-1.317 3.608-.975.975-2.242 1.255-3.608 1.317-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.342-3.608-1.317-.975-.975-1.255-2.242-1.317-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.342-2.633 1.317-3.608.975.975 2.242 1.255 3.608 1.317 1.266.058 1.646.07 4.85.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.654.075-3.122.566-4.305 1.749-1.183 1.183-1.674 2.651-1.749 4.305-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.075 1.654.566 3.122 1.749 4.305 1.183 1.183 2.651 1.674 4.305 1.749 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.654-.075 3.122-.566 4.305-1.749 1.183-1.183 1.674-2.651 1.749-4.305.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.075-1.654-.566-3.122-1.749-4.305-1.183-1.183-2.651-1.674-4.305-1.749-1.28-.058-1.688-.072-4.947-.072zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.324c-2.297 0-4.162-1.865-4.162-4.162s1.865-4.162 4.162-4.162 4.162 1.865 4.162 4.162-1.865 4.162-4.162 4.162zm4.406-11.512c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/></svg>
         </a>
         <a href="https://www.linkedin.com/company/savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur LinkedIn">
-          <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.998 2h posta-15.996c-1.104 0-2 .896-2 2v15.998c0 1.104.896 2 2 2h15.996c1.104 0 2-.896 2-2v-15.998c0-1.104-.896-2-2-2zm-11.998 17.994h-3v-9.996h3v9.996zm-1.5-11.496c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.496h-3v-4.998c0-1.656-1.344-3-3-3s-3 1.344-3 3v4.998h-3v-9.996h3v1.498c.938-1.122 2.322-1.498 3.5-1.498 2.484 0 4.5 2.016 4.5 4.5v5.496z"/></svg>
+          <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.998 2h-15.996c-1.104 0-2 .896-2 2v15.998c0 1.104.896 2 2 2h15.996c1.104 0 2-.896 2-2v-15.998c0-1.104-.896-2-2-2zm-11.998 17.994h-3v-9.996h3v9.996zm-1.5-11.496c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.496h-3v-4.998c0-1.656-1.344-3-3-3s-3 1.344-3 3v4.998h-3v-9.996h3v1.498c.938-1.122 2.322-1.498 3.5-1.498 2.484 0 4.5 2.016 4.5 4.5v5.496z"/></svg>
         </a>
         <a href="https://www.youtube.com/@savoirfreres" target="_blank" rel="noopener noreferrer" aria-label="Suivez Savoir-Frères sur YouTube">
           <svg class="w-6 h-6 fill-white hover:fill-[#F97316]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.582 6.186c-.252-.894-.702-1.608-1.35-2.142-.648-.534-1.422-.804-2.322-.804-2.232 0-5.604.006-9.3.006-3.696 0-7.068-.006-9.3-.006-.9 0-1.674.27-2.322.804-.648.534-1.098 1.248-1.35 2.142-.234.84-.354 2.022-.354 3.546v.522c0 1.524.12 2.706.354 3.546.252.894.702 1.608 1.35 2.142.648.534 1.422.804 2.322.804 2.232 0 5.604-.006 9.3-.006 3.696 0 7.068.006 9.3.006.9 0 1.674-.27 2.322-.804.648-.534 1.098-1.248 1.35-2.142.234-.84.354-2.022.354-3.546v-.522c0-1.524-.12-2.706-.354-3.546zm-11.582 6.814v-5l5 2.5-5 2.5z"/></svg>
@@ -433,11 +441,34 @@
 
   <div class="sticky-footer bg-blue-600 text-white py-4 text-center">
     <p class="text-lg mb-2">Boostez votre acquisition client dès aujourd’hui</p>
-    <a href="#order" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg text-lg font-semibold" aria-label="Réserver un appel stratégique">Réserver Votre Appel</a>
+    <a href="#order" class="cta-button bg-[#F97316] text-white py-2 px-4 rounded-lg text-lg font-semibold pulse" aria-label="Réserver un appel stratégique">Réserver Votre Appel</a>
   </div>
 
   <script>
+    async function fetchHeadline(userData = { business: 'fitness studio', goal: 'leads', platform: 'LinkedIn' }) {
+      try {
+        const response = await fetch('http://<YOUR_API_ENDPOINT>/headline', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(userData)
+        });
+        const data = await response.json();
+        const headlineElement = document.getElementById('dynamic-headline');
+        headlineElement.textContent = data.headline;
+        window.dataLayer.push({ event: 'headline_impression', headline: data.headline });
+      } catch (error) {
+        console.error('Erreur lors de la récupération du titre:', error);
+        document.getElementById('dynamic-headline').textContent = 'Boostez votre entreprise avec des stratégies marketing éprouvées !';
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      fetchHeadline();
+      document.getElementById('hero-cta').addEventListener('click', () => {
+        const headline = document.getElementById('dynamic-headline').textContent;
+        window.dataLayer.push({ event: 'cta_click', headline: headline });
+      });
+
       const sections = document.querySelectorAll('.section-animate');
       const stickyFooter = document.querySelector('.sticky-footer');
       const hamburger = document.querySelector('.hamburger');
@@ -458,7 +489,9 @@
         entries.forEach(entry => {
           if (entry.target.id === 'opt-in' && entry.isIntersecting) {
             stickyFooter.classList.remove('hidden');
+            stickyFooter.classList.add('visible');
           } else if (entry.target.id === 'social-media' && entry.isIntersecting) {
+            stickyFooter.classList.remove('visible');
             stickyFooter.classList.add('hidden');
           }
         });
@@ -527,13 +560,23 @@
 
     function showQuizResult() {
       const result = document.getElementById('quiz-result');
-      result.classList.remove('hidden');
-      setTimeout(() => document.getElementById('mce-EMAIL').focus(), 500);
+      const form = document.getElementById('quiz-form');
+      const selectedChallenge = form.querySelector('input[name="challenge"]:checked');
+      if (selectedChallenge) {
+        const userData = {
+          business: 'fitness studio',
+          goal: selectedChallenge.value,
+          platform: 'LinkedIn'
+        };
+        fetchHeadline(userData);
+        result.classList.remove('hidden');
+        setTimeout(() => document.getElementById('mce-EMAIL').focus(), 500);
+      }
     }
 
     function scrollToOrder() {
       document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
-      setTimeout(() => document.getElementById('mce-EMAIL-ORDER Corvette').focus(), 1000);
+      setTimeout(() => document.getElementById('mce-EMAIL-ORDER').focus(), 1000);
     }
   </script>
 </body>
